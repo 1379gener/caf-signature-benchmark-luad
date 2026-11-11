@@ -1,0 +1,163 @@
+底座 A · TCGA-LUAD 整备
+时间: 2026-08-27 23:33:43
+
+------------------------------------------------------------------
+口径（本次运行使用的全部约定）
+------------------------------------------------------------------
+  se_path:                         /home/kevin/caf_spatial_project/data/TCGA_LUAD/TCGA_LUAD_SE.rds
+  out_dir:                         /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/TCGA_LUAD
+  assay_use:                       tpm_unstrand
+  dedup_rule:                      max_libsize
+  gene_id:                         symbol
+  symbol_dedup:                    max_mean
+  biotype_keep:                    protein_coding
+  sample_set:                      all_stages
+  assert_stage24_n:                166
+  time_unit:                       days
+
+------------------------------------------------------------------
+1. 载入
+------------------------------------------------------------------
+  维度:                          60660 x 540
+  列数 / 唯一病人数:        540 / 517
+
+------------------------------------------------------------------
+2. 去重（口径 2）
+------------------------------------------------------------------
+  有多列的病人数:           12
+
+  多列病人的完整 barcode 与文库大小（★ 标记为被保留者）：
+    ★ TCGA-44-2656-01A-02R-0946-07   libsize=    81612504
+      TCGA-44-2656-01A-02R-A278-07   libsize=    51740802
+      TCGA-44-2656-01B-06R-A277-07   libsize=    21047767
+    ★ TCGA-44-2662-01A-01R-0946-07   libsize=    67319156
+      TCGA-44-2662-01A-01R-A278-07   libsize=    43812864
+      TCGA-44-2662-01B-02R-A277-07   libsize=    18708551
+    ★ TCGA-44-2665-01A-01R-0946-07   libsize=    53902881
+      TCGA-44-2665-01A-01R-A278-07   libsize=    43122325
+      TCGA-44-2665-01B-06R-A277-07   libsize=     8615501
+    ★ TCGA-44-2666-01A-01R-0946-07   libsize=    60440340
+      TCGA-44-2666-01A-01R-A278-07   libsize=    39806967
+      TCGA-44-2666-01B-02R-A277-07   libsize=    24380740
+    ★ TCGA-44-2668-01A-01R-0946-07   libsize=    79990528
+      TCGA-44-2668-01A-01R-A278-07   libsize=    30611841
+      TCGA-44-2668-01B-02R-A277-07   libsize=    27702890
+    ★ TCGA-44-3917-01A-01R-A278-07   libsize=    32146844
+      TCGA-44-3917-01B-02R-A277-07   libsize=    24725762
+    ★ TCGA-44-3918-01A-01R-1107-07   libsize=    61544489
+      TCGA-44-3918-01A-01R-A278-07   libsize=    41700711
+      TCGA-44-3918-01B-02R-A277-07   libsize=    22363313
+    ★ TCGA-44-4112-01A-01R-1107-07   libsize=    54631123
+      TCGA-44-4112-01A-01R-A278-07   libsize=    32296353
+      TCGA-44-4112-01B-06R-A277-07   libsize=    24949171
+    ★ TCGA-44-5645-01A-01R-A278-07   libsize=    44642161
+      TCGA-44-5645-01A-01R-1628-07   libsize=    35446033
+      TCGA-44-5645-01B-04R-A277-07   libsize=    27895741
+    ★ TCGA-44-6146-01A-11R-1755-07   libsize=    49917705
+      TCGA-44-6146-01A-11R-A278-07   libsize=    26171686
+      TCGA-44-6146-01B-04R-A277-07   libsize=    24508167
+    ★ TCGA-44-6147-01A-11R-1755-07   libsize=    40567069
+      TCGA-44-6147-01A-11R-A278-07   libsize=    36525659
+      TCGA-44-6147-01B-06R-A277-07   libsize=    21519130
+    ★ TCGA-44-6775-01A-11R-1858-07   libsize=    40695296
+      TCGA-44-6775-01A-11R-A278-07   libsize=    34887997
+      TCGA-44-6775-01C-02R-A277-07   libsize=    20759776
+  去重后列数:                 517
+  去重后唯一病人数:        517
+  去重后无重复病人 —— 通过
+
+------------------------------------------------------------------
+3. 基因映射（口径 3、4）
+------------------------------------------------------------------
+  rowData 可用列:               source, type, score, phase, gene_id, gene_type, gene_name, level, hgnc_id, havana_gene
+
+  gene_type 分布（前 8）：
+    protein_coding              19962
+    lncRNA                      16901
+    processed_pseudogene        10167
+    unprocessed_pseudogene       2614
+    misc_RNA                     2212
+    snRNA                        1901
+    miRNA                        1881
+    TEC                          1057
+  保留 protein_coding:           19962
+  过滤后行数:                 19962
+  唯一 symbol 数:               19938
+  需合并的重复 symbol:       24
+  最终表达矩阵:              19938 x 517
+  取值范围（抽样）:        [0, 9.08e+03]
+
+------------------------------------------------------------------
+4. 临床与生存（统一为天）
+------------------------------------------------------------------
+
+  分期归一后分布：
+    I        220
+    II        91
+    III       63
+    IV        22
+    NA       121
+  OS_time 缺失:                  70
+  OS_time <= 0:                    4
+  死亡事件数（全分期）:  187
+  有可用生存信息者:        443
+
+------------------------------------------------------------------
+5. 自检 —— Stage II-IV 去重后应为 166
+------------------------------------------------------------------
+  Stage II-IV 病人数（去重后）: 176
+  其中有可用生存信息者:  166
+  其中死亡事件数:           80
+
+  ✅ 通过：复现 n=166，与 Paper 1 锁定值一致。
+     → 去重规则正确，本文件可作为底座 A 的 TCGA 来源。
+
+------------------------------------------------------------------
+6. 输出
+------------------------------------------------------------------
+  最终分析集:                 443 病人 x 19938 基因，事件 182
+  TCGA_LUAD_expr_symbol_tpm.rds:   30.2 MB
+  TCGA_LUAD_clinical_clean.csv:    0.0 MB
+  cohort_manifest_TCGA.csv:        0.0 MB
+
+------------------------------------------------------------------
+sessionInfo
+------------------------------------------------------------------
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] SummarizedExperiment_1.30.2 Biobase_2.60.0             
+[3] GenomicRanges_1.52.0        GenomeInfoDb_1.36.4        
+[5] IRanges_2.34.1              S4Vectors_0.38.2           
+[7] BiocGenerics_0.46.0         MatrixGenerics_1.12.3      
+[9] matrixStats_1.5.0          
+
+loaded via a namespace (and not attached):
+ [1] zlibbioc_1.46.0         Matrix_1.6-1            lattice_0.21-8         
+ [4] abind_1.4-8             GenomeInfoDbData_1.2.10 S4Arrays_1.0.6         
+ [7] XVector_0.40.0          RCurl_1.98-1.18         bitops_1.0-9           
+[10] grid_4.3.1              DelayedArray_0.26.7     compiler_4.3.1         
+[13] tools_4.3.1             crayon_1.5.3           
+
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/TCGA_LUAD/build_20260827_2333.log

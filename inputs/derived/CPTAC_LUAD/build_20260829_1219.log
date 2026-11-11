@@ -1,0 +1,159 @@
+底座 A · CPTAC-LUAD 部分整备
+时间: 2026-08-29 12:19:46
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/CPTAC_LUAD/build_20260829_1219.log
+
+⚠️  本队列无可用生存数据，仅整备表达 / 分期 / 纯度。见脚本头部说明。
+
+====================================================================
+1. 表达矩阵
+====================================================================
+  原始维度:                      18099 x 110
+  重复基因名:                   0
+  去重后维度:                   18099 x 110
+  取值范围（抽样）:          [-8.86, 11.6]  中位 2.42
+  NA 比例:                         3.231%
+    -> 取值含负数且中位约 2.4，为已中心化的 log2 表达；不再做 log 变换
+  样本 ID 形态:                  C3N.02149, C3N.02087, C3L.00368, C3N.00551
+
+====================================================================
+2. cell2020_OS.xlsx / Annotions_S1A
+====================================================================
+  维度:                            225 x 67
+
+  --- 2.1 生存相关列复查（确认确实没有）
+  命中的列:                      Smoking.Status | CIMP.status | QC.status | TP53.mutation.status | KRAS.mutation.status | STK11.mutation.status | EGFR.mutation.status | KEAP1.mutation.status | RB1.mutation.status | BRAF.mutation.status | ARAF.mutation.status | ERBB2.mutation.status
+    -> 上列若全为 *.mutation.status / QC.status / Smoking.Status 之类，
+       则确认本表不含生存信息。
+
+  --- 2.2 Type 分布（Tumor / NAT）
+    NAT         102
+    Tumor       113
+    NA           10
+
+  --- 2.3 ID 形态与匹配
+  Sample.ID 示例:                  C3N.01799, C3N.01799.N, C3L.01890, C3L.01890.N
+  Participant 示例:                C3N-01799, C3N-01799, C3L-01890, C3L-01890
+  表达矩阵 ∩ Sample.ID:        110
+  表达矩阵 ∩ Participant:      0
+    -> Sample.ID 与表达列名同为带点格式，应可直接对齐，无需转换
+
+====================================================================
+3. 验证 Paper 1 的 CPTAC 分期独立性 n=72
+====================================================================
+  Type == Tumor:                     113
+  其中 Sample.ID 在表达矩阵中: 110
+
+  --- Stage 取值分布（Tumor 且在表达矩阵中）
+    1           1
+    1A         16
+    1B         29
+    2A          8
+    2B          9
+    3           1
+    3A         12
+    NA         34
+
+  --- 与 n=72 的核对
+    Tumor ∩ 表达矩阵 ∩ Stage 非空  =  76
+    Paper 1 报告                    =  72
+    判定: ⚠️ 不符（差 4）—— 分期来源需另查
+
+    其他可能的口径：
+      全部 Tumor 且 Stage 非空（不限表达矩阵）   = 76
+      clinical_raw 的 STAGE 属性                  = 48（见诊断脚本）
+      表达矩阵样本数                              = 110
+
+====================================================================
+4. 组装临床表（OS 明确留空）
+====================================================================
+  匹配到 xlsx 的样本:          110
+  Type 分布:                       Tumor=110
+
+  --- 各字段的非缺失数
+    participant               110 / 110
+    type                      110 / 110
+    stage_raw                  76 / 110
+    age                       110 / 110
+    sex                       110 / 110
+    smoking                   102 / 110
+    purity_estimate_rna       109 / 110
+    purity_tsnet              110 / 110
+    estimate_score            110 / 110
+    estimate_immune           110 / 110
+    estimate_stromal          110 / 110
+    OS_time                     0 / 110
+    OS_event                    0 / 110
+    stage                      76 / 110
+
+  --- 分期归一后分布
+    I        46
+    II       17
+    III      13
+    NA       34
+
+  --- ★ 纯度字段可用性（Paper 2 实验二需要）
+    purity_tsnet           n=110  范围 [0.049, 0.999]  中位 0.725
+    purity_estimate_rna    n=109  范围 [0.223, 0.891]  中位 0.631
+    estimate_stromal       n=110  范围 [-939.241, 4368.302]  中位 1973.777
+
+    注：ESTIMATE StromalScore 不得作为主分析的纯度协变量
+        （与被测 CAF signature 基因重叠，等同用自身校正自身）。
+        主分析优先 TSNet Purity；ESTIMATE 系列仅作敏感性分析。
+
+====================================================================
+5. 输出
+====================================================================
+  CPTAC_LUAD_expr_symbol.rds:        6.53 MB
+  CPTAC_LUAD_clinical_clean.csv:     0.01 MB
+  cohort_manifest_CPTAC.csv:         0.00 MB
+
+====================================================================
+6. 若要补齐 OS，可用的重下途径
+====================================================================
+  A. cBioPortal（研究 ID: luad_cptac_2020）
+     https://www.cbioportal.org/study/summary?id=luad_cptac_2020
+     下载 Clinical Data (TSV)，含 OS_STATUS / OS_MONTHS 两列（宽表，非长表）
+     ★ 注意：现有的 clinical_raw.csv 就是从这里导出的长表，但缺 OS 两个属性
+
+  B. Cell 2020 原文补充材料 Table S1B 及之后
+     现有 xlsx 只含 S1A（样本元数据）。生存数据可能在 S1B/S1C
+
+  C. GDC / PDC（Proteomic Data Commons）的 CPTAC-3 临床表
+
+  在补齐之前，本队列不进入 Paper 2 的任何生存分析。
+
+====================================================================
+sessionInfo
+====================================================================
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] data.table_1.18.2.1
+
+loaded via a namespace (and not attached):
+ [1] compiler_4.3.1   magrittr_2.0.5   cli_3.6.5        tools_4.3.1     
+ [5] pillar_1.9.0     glue_1.8.0       tibble_3.2.1     utf8_1.2.6      
+ [9] fansi_1.0.7      cellranger_1.1.0 vctrs_0.7.2      readxl_1.4.3    
+[13] lifecycle_1.0.5  pkgconfig_2.0.3  rlang_1.1.7     
+
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/CPTAC_LUAD/build_20260829_1219.log

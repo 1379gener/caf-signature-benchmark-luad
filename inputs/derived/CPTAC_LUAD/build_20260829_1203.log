@@ -1,0 +1,592 @@
+底座 A · CPTAC-LUAD 整备
+时间: 2026-08-29 12:03:30
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/CPTAC_LUAD/build_20260829_1203.log
+
+====================================================================
+A. 原脚本 12_cptac_survival_validation.R 的数据加载段
+====================================================================
+  总行数: 309
+
+     1| ##############################################################################
+     2| # Script: 12_cptac_survival_validation.R
+     3| # Purpose: SCANI survival validation in CPTAC-LUAD (RNA-seq, same platform
+     4| #          as TCGA discovery cohort → no platform mismatch)
+     5| # Data:    ~/caf_spatial_project/data/CPTAC_LUAD/
+     6| # Output:  ~/caf_spatial_project/results/12_CPTAC_survival/
+     7| ##############################################################################
+     8| 
+     9| library(survival)
+    10| library(survminer)
+    11| library(GSVA)
+    12| library(ggplot2)
+    13| library(dplyr)
+    14| library(timeROC)
+    15| 
+    16| set.seed(42)
+    17| 
+    18| PROJECT_DIR <- "~/caf_spatial_project"
+    19| OUT_DIR     <- file.path(PROJECT_DIR, "results/12_CPTAC_survival")
+    20| dir.create(OUT_DIR, recursive = TRUE, showWarnings = FALSE)
+    21| 
+    22| ##############################################################################
+    23| # 1. Load data
+    24| ##############################################################################
+    25| message("=== Step 1: Load CPTAC data ===")
+    26| 
+    27| expr <- read.csv(
+    28|   file.path(PROJECT_DIR, "data/CPTAC_LUAD/expr_matrix.csv"),
+    29|   row.names = 1, check.names = FALSE, stringsAsFactors = FALSE
+    30| )
+    31| message("  Expression matrix: ", nrow(expr), " genes x ", ncol(expr), " samples")
+    32| message("  Value range: ", round(min(expr, na.rm=TRUE), 3),
+    33|         " to ", round(max(expr, na.rm=TRUE), 3))
+    34| 
+    35| os_raw <- read.csv(
+    36|   file.path(PROJECT_DIR, "data/CPTAC_LUAD/os_data.csv"),
+    37|   stringsAsFactors = FALSE
+    38| )
+    39| message("  OS raw rows: ", nrow(os_raw))
+    40| message("  OS columns: ", paste(colnames(os_raw), collapse = ", "))
+    41| 
+    42| # Clinical for stage/age
+    43| clin_raw <- read.csv(
+    44|   file.path(PROJECT_DIR, "data/CPTAC_LUAD/clinical_raw.csv"),
+    45|   stringsAsFactors = FALSE
+    46| )
+    47| message("  Clinical attributes: ",
+    48|         paste(head(unique(clin_raw$clinicalAttributeId), 20), collapse = ", "))
+    49| 
+    50| ##############################################################################
+    51| # 2. Build clinical table
+    52| ##############################################################################
+    53| message("=== Step 2: Build clinical table ===")
+    54| 
+    55| # Deduplicate OS: keep row with longer follow-up per patient
+    56| os <- os_raw %>%
+    57|   dplyr::group_by(patientId) %>%
+    58|   dplyr::slice_max(OS_months, n = 1, with_ties = FALSE) %>%
+    59|   dplyr::ungroup() %>%
+    60|   dplyr::select(patientId, OS_months, OS_event) %>%
+    61|   dplyr::filter(!is.na(OS_months), OS_months > 0)
+    62| 
+    63| message("  Patients after OS dedup: ", nrow(os))
+    64| message("  Events (deaths): ", sum(os$OS_event, na.rm = TRUE))
+    65| 
+    66| # Extract stage and age from long-format clinical_raw
+    67| pivot_clin <- function(df, attr_id) {
+    68|   df %>%
+    69|     dplyr::filter(clinicalAttributeId == attr_id) %>%
+    70|     dplyr::select(patientId, value) %>%
+    71|     dplyr::distinct(patientId, .keep_all = TRUE)
+    72| }
+    73| 
+    74| stage_df <- pivot_clin(clin_raw, "AJCC_PATHOLOGIC_TUMOR_STAGE")
+    75| if (nrow(stage_df) == 0)
+    76|   stage_df <- pivot_clin(clin_raw, "STAGE")
+    77| if (nrow(stage_df) == 0)
+    78|   stage_df <- pivot_clin(clin_raw, "TUMOR_STAGE")
+    79| 
+    80| age_df <- pivot_clin(clin_raw, "AGE")
+    81| 
+    82| message("  Stage records: ", nrow(stage_df))
+    83| if (nrow(stage_df) > 0) {
+    84|   message("  Stage values (sample): ",
+    85|           paste(head(stage_df$value, 8), collapse = ", "))
+    86| }
+    87| 
+    88| # Merge
+    89| clin <- os %>%
+    90|   dplyr::left_join(stage_df %>% dplyr::rename(stage_raw = value),
+    91|                    by = "patientId") %>%
+    92|   dplyr::left_join(age_df %>% dplyr::rename(age = value),
+    93|                    by = "patientId") %>%
+    94|   dplyr::mutate(age = suppressWarnings(as.numeric(age)))
+    95| 
+    96| # Numeric stage
+    97| clin$stage_n <- dplyr::case_when(
+    98|   grepl("^I$|^Stage I$|IA|IB|1A|1B",    clin$stage_raw, ignore.case=TRUE) ~ 1,
+    99|   grepl("^II$|^Stage II$|IIA|IIB|2A|2B", clin$stage_raw, ignore.case=TRUE) ~ 2,
+   100|   grepl("III|3",                           clin$stage_raw, ignore.case=TRUE) ~ 3,
+   101|   grepl("IV|4",                            clin$stage_raw, ignore.case=TRUE) ~ 4,
+   102|   TRUE ~ NA_real_
+   103| )
+   104| 
+   105| message("  Final clinical n: ", nrow(clin))
+   106| message("  Stage distribution:")
+   107| print(table(clin$stage_raw, useNA = "ifany"))
+   108| 
+   109| ##############################################################################
+   110| # 3. Align expression to clinical samples
+   111| ##############################################################################
+   112| message("=== Step 3: Align samples ===")
+   113| 
+   114| # Expression columns are patient IDs (C3L-XXXXX / C3N-XXXXX)
+   115| expr_mat    <- as.matrix(expr)
+   116| common_ids  <- intersect(clin$patientId, colnames(expr_mat))
+   117| message("  Common samples: ", length(common_ids))
+   118| 
+   119| clin_filt   <- clin[clin$patientId %in% common_ids, ]
+   120| expr_filt   <- expr_mat[, clin_filt$patientId, drop = FALSE]
+   121| 
+   122| message("  Final n: ", nrow(clin_filt), "  Events: ", sum(clin_filt$OS_event))
+   123| 
+   124| # Verify key genes
+   125| for (g in c("TIMP1", "PDPN")) {
+
+====================================================================
+B. 原始文件勘察
+====================================================================
+  expr       13.43M  2026-03-15  cptac_rna.cct
+  os          0.68M  2026-03-15  os_data.csv
+  clin        0.09M  2026-03-15  clinical_raw.csv
+  cell20      0.16M  2026-03-15  cell2020_OS.xlsx
+
+  --- cptac_rna.cct
+    列数: 111
+    列名（前 25）: GeneSymbol, C3N.02149, C3N.02087, C3L.00368, C3N.00551, C3L.01890, C3N.01799, C3N.01405, C3L.00412, C3N.00579, C3N.01488, C3N.02588, C3N.00293, C3N.00294, C3N.00580, C3N.00549, C3N.02424, C3N.01842, C3L.01924, C3L.00279, C3N.00169, C3L.01889, C3N.02067, C3N.01021, C3N.00574
+   GeneSymbol C3N.02149 C3N.02087 C3L.00368 C3N.00551 C3L.01890 C3N.01799
+       <char>     <num>     <num>     <num>     <num>     <num>     <num>
+1:     SAMD11   -0.1900   -0.3648    1.2794    0.6600    1.3326    0.8861
+2:     KLHL17    1.7778    1.4129    1.7955    2.2253    1.7632    1.7163
+3:    PLEKHN1   -0.6566    1.1035    0.7004    1.4308    1.0938    1.3472
+4:      ISG15    7.0019    7.7386    4.3440    6.5198    3.2846    3.4583
+   C3N.01405
+       <num>
+1:   -1.7427
+2:    2.3400
+3:    1.2829
+4:    6.2350
+
+  --- os_data.csv
+    列数: 5
+    列名（前 25）: patientId, OS_STATUS, OS_MONTHS, OS_event, OS_months
+   patientId OS_STATUS OS_MONTHS OS_event OS_months
+      <char>     <int>    <char>    <int>     <num>
+1: C3L-00001        61        61        0     61.00
+2: C3L-00001        61     22.03        0     22.03
+3: C3L-00001        61       Usa        0        NA
+4: C3L-00001        61 Caucasian        0        NA
+
+  --- clinical_raw.csv
+    列数: 5
+    列名（前 25）: uniquePatientKey, patientId, studyId, clinicalAttributeId, value
+                     uniquePatientKey patientId         studyId
+                               <char>    <char>          <char>
+1: QzNOLTAxNzk5Omx1YWRfY3B0YWNfMjAyMA C3N-01799 luad_cptac_2020
+2: QzNOLTAxNzk5Omx1YWRfY3B0YWNfMjAyMA C3N-01799 luad_cptac_2020
+3: QzNOLTAxNzk5Omx1YWRfY3B0YWNfMjAyMA C3N-01799 luad_cptac_2020
+4: QzNOLTAxNzk5Omx1YWRfY3B0YWNfMjAyMA C3N-01799 luad_cptac_2020
+   clinicalAttributeId  value
+                <char> <char>
+1:                 AGE     81
+2:                 BMI  27.37
+3:  CIGARETTES_PER_DAY      5
+4:   COUNTRY_OF_ORIGIN    Usa
+
+  --- cell2020_OS.xlsx
+    工作表:                   Readme, Annotions_S1A
+    列名: Table S1A: Metadata associated with LUAD patients and tumors  related to STAR methods, Figures 1-7, ...2
+  Table S1A: Metadata associated with LUAD patients and tumors  related to STAR methods, Figures 1-7
+1                                                                                          Sample.ID
+2                                                                                        Participant
+3                                                                                         Experiment
+4                                                                                            Channel
+                                                                                             ...2
+1 Unique identifier for each sample, derived from participant ID with a .N suffix for NAT samples
+2                                                                                  Participant ID
+3                                     Plex number of the TMT experiment that contained the sample
+4                                                               TMT channel containing the sample
+
+====================================================================
+C. 整备
+====================================================================
+
+  --- C1. 表达矩阵
+  首列（基因名列）:      GeneSymbol
+  原始维度:                  18099 x 110
+  重复基因名:               0
+  去重后维度:               18099 x 110
+  取值范围（抽样）:      [-8.86, 11.6]  中位 2.42
+    -> 中位落在 0-15 通常已是 log2 尺度；此项须写进变量字典
+  NA 比例:                     3.231%
+    TIMP1    有
+    PDPN     有
+    PCNA     有
+    ACTA2    有
+  样本 ID 示例:              C3N.02149, C3N.02087, C3L.00368, C3N.00551, C3L.01890
+
+  --- C2. 生存字段自动探测
+    ID 列       候选: patientId
+    时间列    候选: OS_MONTHS | OS_months
+    事件列    候选: OS_STATUS | OS_event
+  采用:                        ID=patientId  time=OS_MONTHS  event=OS_STATUS
+  os_data 行数:                15954
+  唯一 ID 数:                 63
+    时间列取值示例: 61, 22.03, Usa, Caucasian, 180.3, Western
+    事件列取值分布: 
+      0                          30
+      0.0002813                  14
+      0.0003187                  16
+      0.0003906                  17
+      0.0004465                  16
+      0.000571                   17
+      0.0006407                  17
+      0.0007937                  17
+      0.0008921                  17
+      0.001059                   14
+      0.001148                   17
+      0.001757                   15
+      0.001787                   16
+      0.001905                   15
+      0.002065                   17
+      0.004302                   17
+      0.004985                   15
+      0.005436                   15
+      0.005449                   17
+      0.006206                   14
+      0.006697                   16
+      0.01052                    15
+      0.01068                    14
+      0.013338129                16
+      0.027497918                15
+      0.03323                    17
+      0.03632                    14
+      0.038107083                16
+      0.040477271                15
+      0.040897366                15
+      0.048347786                17
+      0.05426141                 17
+      0.058044846                14
+      0.058723964                14
+      0.063233673                16
+      0.06524258                 17
+      0.09469872                 17
+      0.095611908                17
+      0.108892463                15
+      0.123169341                16
+      0.131793364                14
+      0.1342                     16
+      0.172781281                17
+      0.195721216                17
+      0.2048                     17
+      0.229976836                17
+      0.242792574                17
+      0.2511                     17
+      0.3                        16
+      0.3137                     17
+      0.3261                     16
+      0.430045823                17
+      0.465146916                17
+      0.4688                     17
+      0.52                       34
+      0.53                       17
+      0.54                       49
+      0.553374043                15
+      0.555387931                16
+      0.5558                     17
+      0.55960405                 16
+      0.56                       15
+      0.569756538                17
+      0.57                       32
+      0.58                       32
+      0.59                       17
+      0.600542692                16
+      0.62                       17
+      0.641966867                17
+      0.645000203                17
+      0.64561063                 17
+      0.653498923                17
+      0.659076211                17
+      0.670686097                14
+      0.672472732                16
+      0.694707883                17
+      0.6989                     17
+      0.7                        17
+      0.715851112                14
+      0.718619283                15
+      0.7368                     16
+      0.74069777                 17
+      0.745679396                15
+      0.750380407                15
+      0.750587087                14
+      0.753186472                15
+      0.755445027                17
+      0.759909158                15
+      0.7674                     14
+      0.773614689                14
+      0.776798432                15
+      0.782006274                17
+      0.8036                     17
+      0.806889089                17
+      0.806901209                16
+      0.814593122                15
+      0.8227                     14
+      0.8271                     17
+      0.8365                     17
+      0.836971783                16
+      0.8611                     15
+      0.8618                     15
+      0.8649                     16
+      0.8743                     17
+      0.8791                     15
+      0.8809                     14
+      0.882                      17
+      0.886105371                17
+      0.9134                     17
+      0.9146                     15
+      0.9205                     15
+      0.9329                     16
+      0.9384                     15
+      0.9601                     14
+      0.9613                     17
+      0.9656                     15
+      0.9704                     17
+      0.9736                     17
+      0.9738                     15
+      0.9803                     16
+      1                        1015
+      1.04E-18                   16
+      1.05E-26                   14
+      1.09E-125                  17
+      1.59E-62                   15
+      1.91E-05                   17
+      10                         51
+      100                        50
+      106                        17
+      112.727                    17
+      12                         17
+      127.4                      14
+      151                        14
+      152                        15
+      153                        46
+      156                        51
+      157                        32
+      158                        17
+      159                        15
+      16.61                      43
+      16.91                      17
+      160                        48
+      160.02                     17
+      162                        31
+      163                        17
+      164                        16
+      165                        96
+      165.1                      15
+      167                        46
+      167.64                     17
+      168                       113
+      169                        14
+      17.3                       17
+      17.72                      17
+      17.93                      15
+      17.99                      16
+      170                       127
+      171                        16
+      172                        17
+      172.72                     17
+      173                        78
+      175                        17
+      177                        28
+      18.08                      17
+      18.73                      15
+      18.75                      14
+      180                        15
+      180.3                      15
+      182                        17
+      182.88                     16
+      187.96                     17
+      19.13                      17
+      19.53                      17
+      19.92                      17
+      1A                        145
+      1B                        337
+      2                          17
+      2.28E-24                   17
+      2.90E-51                   17
+      2.95E-49                   17
+      20                        131
+      20.03                      17
+      20.05                      30
+      20.2                       17
+      20.55                      17
+      20.57                      17
+      20.78                      15
+      20.94                      17
+      21.26                      17
+      21.37                      17
+      21.72                      15
+      21.76                      15
+      21.89                      16
+      21.93                      14
+      22.03                      15
+      22.15                      17
+      22.23                      14
+      22.55                      17
+      22.6                       15
+      22.77                      17
+      22.84                      17
+      23.03                      29
+      23.5                       15
+      23.8                       16
+      24.01                      16
+      24.06                      17
+      24.2                       17
+      24.51                      14
+      24.69                      15
+      25                         34
+      25.12                      16
+      25.15                      15
+      25.71                      16
+      27                         17
+      27.18                      16
+      27.37                      16
+      27.45                      15
+      27.99                      16
+      28.5                       17
+      29                         16
+      29.1                       17
+      29.37                      14
+      29.9                       16
+      2A                         79
+      2B                         84
+      3                          50
+      3.04E-153                  14
+      3.21E-10                   15
+      3.5                        17
+      3.56E-05                   14
+      3.58E-05                   16
+      3.8                        17
+      30                         50
+      31.35                      15
+      31.74                      15
+      33                         15
+      34.08                      17
+      34.61                      17
+      35                         17
+      35.03                      17
+      39.05                      17
+      3A                        100
+      4                          32
+      4.45E-05                   17
+      40                         65
+      40.11                      17
+      40.67                      14
+      44                         34
+      45                         31
+      46                         16
+      48                        123
+      49                         47
+      5                         202
+      50                        131
+      51                         32
+      52                         50
+      52.9                       15
+      53                         15
+      54                         50
+      55                         45
+      56                         98
+      57                         80
+      58                         32
+      59                         79
+      6.3                        34
+      6.62E-05                   15
+      60                         78
+      61                         32
+      62                         77
+      63                         16
+      64                        146
+      65                         43
+      66                         51
+      66.7                       17
+      67                         14
+      68                         48
+      69                         30
+      7                          16
+      70                         62
+      71                         65
+      71.6                       15
+      72                         63
+      74                         16
+      75                         15
+      76                         30
+      78                         17
+      79                         33
+      8                          17
+      80                         30
+      80.455                     17
+      81                         16
+      82                         16
+      83                         17
+      84                         33
+      85.455                     15
+      86.818                     17
+      9                          17
+      92                         14
+      95                         15
+      97.7                       17
+      Asian                    1141
+      Bulgaria                   32
+      Caucasian                 241
+      China                     151
+      Current reformed smoker within past 15 years   98
+      Current reformed smoker, more than 15 years  115
+      Current smoker: Includes daily and non-daily smokers  267
+      European                   32
+      Exposure to secondhand smoke history not available  409
+      Female                    380
+      Han                       151
+      Hispanic                   34
+      Lifelong non-smoker: Less than 100 cigarettes smoked in lifetime  477
+      Male                      620
+      No or minimal exposure to secondhand smoke  465
+      Non-Smoker                477
+      Other                      32
+      Signature2: AID/APOBEC     17
+      Signature5: unknown aetiology  213
+      Smoker                    480
+      Smoking history not available   43
+      Ukraine                    15
+      Usa                       275
+      Vietnam                   495
+      Western                   354
+      Yes                        65
+  时间中位（原始单位）: 20
+  判定单位:                  月 -> 天（x30.4375）
+
+  --- C3. 分期字段自动探测
+  clinical_raw 维度:           1000 x 5
+  形态:                        cBioPortal 长表
+    属性（前 25）：
+      AGE                                          63
+      BMI                                          63
+      COUNTRY_OF_ORIGIN                            63
+      HEIGHT                                       63
+      REGION_OF_ORIGIN                             63
+      SAMPLE_COUNT                                 63
+      SEX                                          63
+      SMOKING_HISTORY                              63
+      WEIGHT                                       63
+      SMOKING_SCORE_WGS                            62
+      SMOKING_SIGNATURE_FRACTION_WGS               62
+      ETHNICITY                                    60
+      SMOKING_STATUS                               60
+      SECONDHAND_SMOKE                             59
+      STAGE                                        48
+      CIGARETTES_PER_DAY                           28
+      PACK_YEARS_SMOKED                            26
+      DOMINANT_SIGNATURE_FRACTION_WGS_NOTSMOKING   14
+      DOMINANT_SIGNATURE_WGS_NOTSMOKING_50PERC     14
+  分期属性候选:            STAGE
+    分期原始取值分布:
+      1                                 1
+      1A                                9
+      1B                               21
+      2A                                5
+      2B                                5
+      3                                 1
+      3A                                6
+
+  --- C4. 合并与断言
+    ID 匹配情况：
+      表达矩阵样本数              110
+      os_data 中能匹配上的        4

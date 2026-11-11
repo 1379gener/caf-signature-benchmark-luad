@@ -1,0 +1,227 @@
+
+====================================================================
+GSE68465   GPL96
+====================================================================
+  样本数（原始）:         462
+
+  --- 筛选
+    组织类型筛选后        443 / 462
+  两级筛选后:               443
+
+  --- 临床字段
+  时间单位换算:            月 x 30.4375 -> 天
+    分期:
+      !! 未能映射的 TNM 取值: pp | pNXpT1
+      I       276
+      II       95
+      III      69
+      NA        3
+  可用于生存分析:         442
+  其中事件数:               236
+  事件率:                     53.4%
+  中位随访（天）:         1430.6
+
+  --- 表达矩阵
+  原始维度:                  22283 x 462
+  取值范围（抽样）:      [2.39, 4.11e+04]  中位 1.04e+03
+  推定尺度:                  线性（下游需 log2(x+1)）
+    库中可查的探针:       22283 / 22283
+    注释来源:                hgu133a.db 3.13.0
+    合并后维度（同名取均表达最大）: 13039 x 462
+    最终分析集:             13039 基因 x 442 样本，事件 236
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE68465
+
+====================================================================
+GSE31210   GPL570
+====================================================================
+  样本数（原始）:         246
+
+  --- 筛选
+    组织类型筛选后        226 / 246
+  两级筛选后:               226
+
+  --- 临床字段
+  时间单位换算:            天 x 1.0000 -> 天
+    分期:
+      I       168
+      II       58
+    附加字段 exclude for prognosis analysis d 非缺失 226
+  可用于生存分析:         226
+  其中事件数:               35
+  事件率:                     15.5%
+  中位随访（天）:         1744.5
+
+  --- 表达矩阵
+  原始维度:                  54675 x 246
+  取值范围（抽样）:      [0.156, 4.54e+04]  中位 39.2
+  推定尺度:                  线性（下游需 log2(x+1)）
+    库中可查的探针:       54675 / 54675
+    注释来源:                hgu133plus2.db 3.13.0
+    合并后维度（同名取均表达最大）: 21367 x 246
+    最终分析集:             21367 基因 x 226 样本，事件 35
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE31210
+
+====================================================================
+GSE72094   GPL15048
+====================================================================
+  样本数（原始）:         442
+
+  --- 筛选
+    组织类型筛选后        442 / 442
+  两级筛选后:               442
+
+  --- 临床字段
+  时间单位换算:            天 x 1.0000 -> 天
+    分期:
+      I       265
+      II       69
+      III      63
+      IV       17
+      NA       28
+  可用于生存分析:         398
+  其中事件数:               113
+  事件率:                     28.4%
+  中位随访（天）:         824
+
+  --- 自检
+    n      : 得到 398，锁定值 398  OK
+    事件数 : 得到 113，锁定值 113  OK
+
+  --- 表达矩阵
+  原始维度:                  60607 x 442
+  取值范围（抽样）:      [1.81, 14.9]  中位 4.87
+  推定尺度:                  log2（不再变换）
+    使用的 symbol 列:        GeneSymbol
+    可用 symbol 的探针数:  41024
+    合并后维度（同名取均表达最大）: 22115 x 442
+    最终分析集:             22115 基因 x 398 样本，事件 113
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE72094
+
+====================================================================
+GSE50081   GPL570
+====================================================================
+  样本数（原始）:         181
+
+  --- 筛选
+    组织类型筛选后        181 / 181
+    histology 取值分布:
+      adenocarcinoma                                  127
+      squamous cell carcinoma                          42
+      large cell carcinoma                              7
+      adenosquamous carcinoma                           2
+      NSClarge cell carcinoma-mixed                     1
+      NSCLC-favor adenocarcinoma                        1
+      squamous cell carcinoma X2                        1
+    ★ 严格筛 'adenocarcinoma' 后      127 / 181
+      注：模糊写法（如 'NSCLC-favor adenocarcinoma'）一律排除
+  两级筛选后:               127
+
+  --- 临床字段
+  时间单位换算:            年 x 365.2500 -> 天
+    分期:
+      I        92
+      II       35
+    附加字段 t-stage                          非缺失 181
+    附加字段 n-stage                          非缺失 181
+    附加字段 recurrence                       非缺失 181
+  可用于生存分析:         127
+  其中事件数:               51
+  事件率:                     40.2%
+  中位随访（天）:         1596.1
+
+  --- 表达矩阵
+  原始维度:                  54675 x 181
+  取值范围（抽样）:      [1.85, 14.3]  中位 3.59
+  推定尺度:                  log2（不再变换）
+    库中可查的探针:       54675 / 54675
+    注释来源:                hgu133plus2.db 3.13.0
+    合并后维度（同名取均表达最大）: 21367 x 181
+    最终分析集:             21367 基因 x 127 样本，事件 51
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE50081
+
+====================================================================
+GSE30219   GPL570
+====================================================================
+  样本数（原始）:         307
+
+  --- 筛选
+    组织类型筛选后        307 / 307
+    histology 取值分布:
+      ADC                                              85
+      SQC                                              61
+      LCNE                                             56
+      BAS                                              39
+      CARCI                                            24
+      SCC                                              21
+      NA                                               14
+      Other                                             4
+      LCC                                               3
+    ★ 严格筛 'ADC' 后      85 / 307
+      注：模糊写法（如 'NSCLC-favor adenocarcinoma'）一律排除
+  两级筛选后:               85
+
+  --- 临床字段
+  时间单位换算:            月 x 30.4375 -> 天
+    分期:
+      本队列无分期组，由 pT/pN/pM 推导（AJCC 6 近似，标记为 derived）
+      I        81
+      II        3
+      III       1
+  可用于生存分析:         83
+  其中事件数:               43
+  事件率:                     51.8%
+  中位随访（天）:         2100.2
+
+  --- 表达矩阵
+  原始维度:                  54675 x 307
+  取值范围（抽样）:      [2.41, 14.3]  中位 4.15
+  推定尺度:                  log2（不再变换）
+    库中可查的探针:       54675 / 54675
+    注释来源:                hgu133plus2.db 3.13.0
+    合并后维度（同名取均表达最大）: 21367 x 307
+    最终分析集:             21367 基因 x 83 样本，事件 43
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE30219
+
+====================================================================
+sessionInfo
+====================================================================
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] hgu133plus2.db_3.13.0 hgu133a.db_3.13.0     org.Hs.eg.db_3.17.0  
+[4] AnnotationDbi_1.62.2  IRanges_2.34.1        S4Vectors_0.38.2     
+[7] Biobase_2.60.0        BiocGenerics_0.46.0   data.table_1.18.2.1  
+
+loaded via a namespace (and not attached):
+ [1] crayon_1.5.3            vctrs_0.7.2             httr_1.4.7             
+ [4] cli_3.6.5               rlang_1.1.7             otel_0.2.0             
+ [7] DBI_1.3.0               png_0.1-9               bit_4.6.0              
+[10] RCurl_1.98-1.18         Biostrings_2.68.1       KEGGREST_1.40.0        
+[13] bitops_1.0-9            fastmap_1.2.0           GenomeInfoDb_1.36.4    
+[16] memoise_2.0.1           compiler_4.3.1          RSQLite_2.3.1          
+[19] blob_1.3.0              pkgconfig_2.0.3         XVector_0.40.0         
+[22] R6_2.6.1                GenomeInfoDbData_1.2.10 tools_4.3.1            
+[25] bit64_4.6.0-1           zlibbioc_1.46.0         cachem_1.1.0           
+
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/geo_build_20260829_1315.log

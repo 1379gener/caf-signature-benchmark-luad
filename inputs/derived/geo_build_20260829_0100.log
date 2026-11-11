@@ -1,0 +1,210 @@
+
+====================================================================
+GSE68465   GPL96
+====================================================================
+  样本数:                     462
+
+  --- 键名解析结果（★ 按键名，非槽位）
+    disease_state                                                   462
+    Sex                                                             443
+    age                                                             443
+    race                                                            443
+    vital_status                                                    443
+    clinical_treatment_adjuvant_chemo                               443
+    clinical_treatment_adjuvant_rt                                  443
+    disease_stage                                                   443
+    first_progression_or_relapse                                    443
+    months_to_first_progression                                     443
+    mths_to_last_clinical_assessment                                443
+    months_to_last_contact_or_death                                 443
+    smoking_history                                                 443
+    surgical_margins                                                443
+    organism_part                                                   443
+    histologic_grade                                                443
+
+  --- 临床字段
+    组织类型分布:
+      Lung Adenocarcinoma                             443
+      Normal                                           19
+  肿瘤样本数:               443
+    分期归一:
+      !! 未能映射的 TNM 取值: pp | pNXpT1
+      I       276
+      II       95
+      III      69
+      NA       22
+  时间单位换算:            原始 x 30.4375 -> 天
+  可用于生存分析:         442
+  其中事件数:               236
+  中位随访（天）:         1430.6
+
+  --- 表达矩阵
+  原始维度:                  22283 x 462
+  取值范围（抽样）:      [2.39, 4.11e+04]  中位 1.04e+03
+    -> 中位落在 0-15 通常已是 log2 尺度；此项须写进变量字典
+    库中可查的探针:       22283 / 22283
+    注释来源:                hgu133a.db 3.13.0
+    可映射探针:             21056
+    唯一 symbol:               13039
+    合并后维度（多探针取均表达最大者）: 13039 x 462
+    最终分析集:             13039 基因 x 442 样本，事件 236
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE68465
+
+====================================================================
+GSE31210   GPL570
+====================================================================
+  样本数:                     246
+
+  --- 键名解析结果（★ 按键名，非槽位）
+    tissue                                                          246
+    gender                                                          246
+    smoking status                                                  246
+    age (years)                                                     241
+    bi                                                              231
+    pathological stage                                              226
+    pstage iorii                                                    226
+    gene alteration status                                          226
+    myc                                                             226
+    myc_copy                                                        226
+    relapse                                                         226
+    days before relapse/censor                                      226
+    months before relapse/censor                                    226
+    death                                                           226
+    days before death/censor                                        226
+    exclude for prognosis analysis due to incomplete resection or   226
+    cluster                                                          79
+    group                                                            68
+    age                                                               5
+
+  --- 临床字段
+    组织类型分布:
+      primary lung tumor                              226
+      normal lung                                      20
+  肿瘤样本数:               226
+    分期归一:
+      I       168
+      II       58
+      NA       20
+    附加字段 exclude for prognosis analysis 非缺失 226
+        exclude                22
+        none                  204
+  时间单位换算:            原始 x 1.0000 -> 天
+  可用于生存分析:         226
+  其中事件数:               35
+  中位随访（天）:         1744.5
+
+  --- 表达矩阵
+  原始维度:                  54675 x 246
+  取值范围（抽样）:      [0.156, 4.54e+04]  中位 39.2
+    -> 中位落在 0-15 通常已是 log2 尺度；此项须写进变量字典
+    库中可查的探针:       54675 / 54675
+    注释来源:                hgu133plus2.db 3.13.0
+    可映射探针:             44662
+    唯一 symbol:               21367
+    合并后维度（多探针取均表达最大者）: 21367 x 246
+    最终分析集:             21367 基因 x 226 样本，事件 35
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE31210
+
+====================================================================
+GSE72094   GPL15048
+====================================================================
+  样本数:                     442
+
+  --- 键名解析结果（★ 按键名，非槽位）
+    barcode_microarray                                              442
+    filename_microarray                                             442
+    rna_barin                                                       442
+    patient_id                                                      442
+    gender                                                          442
+    age_at_diagnosis                                                442
+    race                                                            442
+    spanish_hispanic                                                442
+    smoking_status                                                  442
+    vital_status                                                    442
+    survival_time_in_days                                           442
+    Stage                                                           442
+    kras_status                                                     442
+    egfr_status                                                     442
+    stk11_status                                                    442
+    tp53_status                                                     442
+    kras_aa_mut                                                     154
+    tp53_aa_mut                                                     111
+    stk11_aa_mut                                                     68
+    egfr_aa_mut                                                      47
+    stk11_aa_inherited                                               10
+    tp53_aa_inherited                                                 7
+
+  --- 临床字段
+  肿瘤样本数:               442
+    分期归一:
+      I       265
+      II       69
+      III      63
+      IV       17
+      NA       28
+  时间单位换算:            原始 x 1.0000 -> 天
+  可用于生存分析:         398
+  其中事件数:               113
+  中位随访（天）:         824
+
+  --- 自检
+    n      : 得到 398，锁定值 398  OK
+    事件数 : 得到 113，锁定值 113  OK
+
+  --- 表达矩阵
+  原始维度:                  60607 x 442
+  取值范围（抽样）:      [1.81, 14.9]  中位 4.87
+    -> 中位落在 0-15 通常已是 log2 尺度；此项须写进变量字典
+    平台表维度:             60607 x 5
+    平台表列名:             ID, GB_LIST, EntrezGeneID, GeneSymbol, SPOT_ID
+    使用的 symbol 列:        GeneSymbol
+    可用 symbol 的探针数:  41024
+    可映射探针:             41024
+    唯一 symbol:               22115
+    合并后维度（多探针取均表达最大者）: 22115 x 442
+    最终分析集:             22115 基因 x 398 样本，事件 113
+    输出 -> /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/GSE72094
+
+====================================================================
+sessionInfo
+====================================================================
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] hgu133plus2.db_3.13.0 hgu133a.db_3.13.0     org.Hs.eg.db_3.17.0  
+[4] AnnotationDbi_1.62.2  IRanges_2.34.1        S4Vectors_0.38.2     
+[7] Biobase_2.60.0        BiocGenerics_0.46.0   data.table_1.18.2.1  
+
+loaded via a namespace (and not attached):
+ [1] crayon_1.5.3            vctrs_0.7.2             httr_1.4.7             
+ [4] cli_3.6.5               rlang_1.1.7             otel_0.2.0             
+ [7] DBI_1.3.0               png_0.1-9               bit_4.6.0              
+[10] RCurl_1.98-1.18         Biostrings_2.68.1       KEGGREST_1.40.0        
+[13] bitops_1.0-9            fastmap_1.2.0           GenomeInfoDb_1.36.4    
+[16] memoise_2.0.1           compiler_4.3.1          RSQLite_2.3.1          
+[19] blob_1.3.0              pkgconfig_2.0.3         XVector_0.40.0         
+[22] R6_2.6.1                GenomeInfoDbData_1.2.10 tools_4.3.1            
+[25] bit64_4.6.0-1           zlibbioc_1.46.0         cachem_1.1.0           
+
+日志: /home/kevin/thesis_LUAD_CAF/01_bases/A_bulk_OS/derived/geo_build_20260829_0100.log
