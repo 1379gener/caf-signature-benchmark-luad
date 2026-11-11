@@ -1,0 +1,239 @@
+verify_ch3  2026-10-16 05:30:41
+日志: /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/logs/verify_ch3_20261016_0530.log
+GSVA 1.48.3
+
+======================================================================
+0. 锁定物与环境
+======================================================================
+  [PASS] V0.1   签名注册表 md5                            期望 4ad3218931d95dfb6ee67a7ba07b9a75 复算 4ad3218931d95dfb6ee67a7ba07b9a75
+  [PASS] V0.2   GSVA 版本                                    期望 1.48.3         复算 1.48.3
+  [PASS] V0.3   注册签名数                                期望 12             复算 12
+
+======================================================================
+1. Base A：逐队列读入、断言、建候选池
+======================================================================
+     cohort     n events n_genes has_survival
+     <char> <int>  <int>   <int>       <lgcl>
+  TCGA_LUAD   443    182   19938         TRUE
+   GSE68465   442    236   13039         TRUE
+   GSE72094   398    113   22115         TRUE
+   GSE31210   204     30   21367         TRUE
+   GSE50081   127     51   21367         TRUE
+   GSE30219    83     43   21367         TRUE
+ CPTAC_LUAD   110     NA   18099        FALSE
+                            platform
+                              <char>
+ Illumina RNA-seq (STAR counts, GDC)
+                               GPL96
+                            GPL15048
+                              GPL570
+                              GPL570
+                              GPL570
+          RNA-seq (LinkedOmics .cct)
+  [PASS] V1.1   队列数（含 CPTAC）                       期望 7              复算 7
+  [PASS] V1.2   生存队列数                                期望 6              复算 6
+  [PASS] V1.3   生存队列样本合计                       期望 1697           复算 1697
+  [PASS] V1.4   生存队列事件合计                       期望 655            复算 655
+  [PASS] V1.5   GSE31210 样本数（已排除 exclude）      期望 204            复算 204
+
+======================================================================
+2. 逐组合复算（真实分数 + Cox；经验 p 由零分布向量重算）
+======================================================================
+  [PASS] V2.1   组合 RDS 数                                 期望 72             复算 72
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  可评估 71 / 不可评估 1
+  |z_real 复算 − RDS| 最大 0.00e+00；|p_emp_A 复算 − RDS| 最大 0.00e+00；|p_emp_B 复算 − RDS| 最大 0.00e+00
+  [PASS] V2.2   可评估组合数                             期望 71             复算 71
+  [PASS] V2.3   z_real 复算与 RDS 一致（全部组合，容差 1e-6） 期望 0              复算 0
+  [PASS] V2.4   p_emp_A 复算与 RDS 一致（全部组合） 期望 0              复算 0
+  [PASS] V2.5   p_emp_B 复算与 RDS 一致（全部组合） 期望 0              复算 0
+  [PASS] V2.6   覆盖率复算与 RDS 一致                  期望 0              复算 0
+  [PASS] V2.7   零分布次数 != 1000 的组合数（SAP 要求 1000） 期望 0              复算 0
+
+======================================================================
+3. 阶段 1 头条数字（由复算值现算）
+======================================================================
+  [PASS] V3.1   信号分类： 无信号                      期望 31             复算 31
+  [PASS] V3.2   信号分类： 不特异                      期望 25             复算 25
+  [PASS] V3.3   信号分类： 强于随机                   期望 15             复算 15
+  [PASS] V3.4   弱于自身零分布 p95 的组合数         期望 56             复算 56
+  [PASS] V3.5   逐签名 pass_A（12 个）                   期望 3/0/0/2/0/2/2/3/0/0/1/2 复算 3/0/0/2/0/2/2/3/0/0/1/2
+  [PASS] V3.6   逐签名 pass_B_main                          期望 0/0/0/3/0/2/4/2/0/0/1/0 复算 0/0/0/3/0/2/4/2/0/0/1/0
+  [PASS] V3.7   逐签名 pass_B_sens                          期望 5/0/0/3/0/2/4/2/0/0/1/0 复算 5/0/0/3/0/2/4/2/0/0/1/0
+
+======================================================================
+4. 队列角色通过率与过拟合梯度
+======================================================================
+         role     n pass_A
+       <char> <int>  <int>
+ 完全独立队列    54      8
+     开发队列     5      5
+ 原文验证队列    12      2
+  [PASS] V4.1   通过/组合： 开发队列                  期望 5/5            复算 5/5
+  [PASS] V4.2   通过/组合： 原文验证队列            期望 2/12           复算 2/12
+  [PASS] V4.3   通过/组合： 完全独立队列            期望 8/54           复算 8/54
+Key: <sig_id>
+  sig_id ratio_old ratio
+  <char>     <num> <num>
+ SIG-001      1.35  1.35
+ SIG-004      2.67  2.67
+ SIG-006      1.85  1.85
+ SIG-008        NA    NA
+ SIG-011      3.06  3.06
+ SIG-012      1.26  1.26
+  [PASS] V4.4   过拟合梯度（有训练队列者，保留两位） 期望 1.35/2.67/1.85/3.06/1.26 复算 1.35/2.67/1.85/3.06/1.26
+
+======================================================================
+5. 打分覆盖审计（每个 签名 × 队列）
+======================================================================
+    cohort  sig_id  class                            platform n_sig n_present
+    <char>  <char> <char>                              <char> <int>     <int>
+  GSE68465 SIG-004      B                               GPL96     7         4
+  GSE68465 SIG-007      B                               GPL96     8         6
+  GSE72094 SIG-001      B                            GPL15048     4         3
+  GSE68465 SIG-008      B                               GPL96     5         4
+  GSE68465 SIG-010      A                               GPL96    20        16
+  GSE68465 SIG-012      A                               GPL96    11         9
+ TCGA_LUAD SIG-012      A Illumina RNA-seq (STAR counts, GDC)    11        10
+ TCGA_LUAD SIG-010      A Illumina RNA-seq (STAR counts, GDC)    20        19
+  GSE68465 SIG-009      A                               GPL96    27        26
+  GSE72094 SIG-003      A                            GPL15048   141       140
+ coverage n_in_pool universe pool_size evaluable                     missing
+    <num>     <int>    <int>     <int>    <lgcl>                      <char>
+    0.571        NA    13039     13039     FALSE          FGF10;STXBP5;FRMD6
+    0.750         6    13039     13039      TRUE               C1QTNF6;LATS2
+    0.750         3    22115     22115      TRUE                       CD302
+    0.800         4    13039     13039      TRUE                      FBLIM1
+    0.800        16    13039     13039      TRUE ADAM33;SFRP2;SYNPO2;TMEM119
+    0.818         9    13039     13039      TRUE                TMEM125;IRX2
+    0.909        10    19938     17362      TRUE                        IGHM
+    0.950        19    19938     17362      TRUE                        MEG3
+    0.963        26    13039     13039      TRUE                      ITGA11
+    0.993       135    22115     22115      TRUE                      GIMAP5
+  [PASS] V5.1   打分宇宙 < 10,000 基因的组合数       期望 0              复算 0
+
+======================================================================
+6. 汇总
+======================================================================
+
+  PASS 27 / FAIL 0
+
+  输出：verify_ch3_combo / verify_ch3_summary / scoring_coverage_audit _20261016.csv
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] GSVA_1.48.3         survival_3.5-7      data.table_1.18.2.1
+
+loaded via a namespace (and not attached):
+ [1] bitops_1.0-9                RSQLite_2.3.1              
+ [3] lattice_0.21-8              sparseMatrixStats_1.12.2   
+ [5] grid_4.3.1                  fastmap_1.2.0              
+ [7] blob_1.3.0                  Matrix_1.6-1               
+ [9] GSEABase_1.62.0             AnnotationDbi_1.62.2       
+[11] graph_1.78.0                GenomeInfoDb_1.36.4        
+[13] DBI_1.3.0                   httr_1.4.7                 
+[15] SingleCellExperiment_1.22.0 HDF5Array_1.28.1           
+[17] XML_3.99-0.23               Biostrings_2.68.1          
+[19] codetools_0.2-19            abind_1.4-8                
+[21] cli_3.6.5                   rlang_1.1.7                
+[23] crayon_1.5.3                XVector_0.40.0             
+[25] Biobase_2.60.0              bit64_4.6.0-1              
+[27] splines_4.3.1               cachem_1.1.0               
+[29] DelayedArray_0.26.7         otel_0.2.0                 
+[31] S4Arrays_1.0.6              beachmat_2.16.0            
+[33] tools_4.3.1                 parallel_4.3.1             
+[35] BiocParallel_1.34.2         memoise_2.0.1              
+[37] annotate_1.78.0             Rhdf5lib_1.22.1            
+[39] GenomeInfoDbData_1.2.10     SummarizedExperiment_1.30.2
+[41] BiocGenerics_0.46.0         rsvd_1.0.5                 
+[43] org.Hs.eg.db_3.17.0         vctrs_0.7.2                
+[45] R6_2.6.1                    png_0.1-9                  
+[47] rhdf5_2.44.0                matrixStats_1.5.0          
+[49] stats4_4.3.1                zlibbioc_1.46.0            
+[51] KEGGREST_1.40.0             BiocSingular_1.16.0        
+[53] S4Vectors_0.38.2            IRanges_2.34.1             
+[55] bit_4.6.0                   irlba_2.3.7                
+[57] pkgconfig_2.0.3             ScaledMatrix_1.8.1         
+[59] Rcpp_1.1.1                  GenomicRanges_1.52.0       
+[61] rhdf5filters_1.12.1         MatrixGenerics_1.12.3      
+[63] xtable_1.8-8                DelayedMatrixStats_1.22.6  
+[65] compiler_4.3.1              RCurl_1.98-1.18            

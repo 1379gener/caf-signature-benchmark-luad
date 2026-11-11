@@ -1,0 +1,13 @@
+sig_id,name,n_genes,class,n_eval,no_signal,not_specific,stronger,pass_A,pass_B_main,pass_B_sens,qc_fail,median_abs_z
+SIG-003,ESTIMATE StromalSignature,141,A,6,6,0,0,0,0,0,0,0.74
+SIG-005,Navab 2011 CAF prognostic signature,11,A,6,5,1,0,0,0,0,0,0.84
+SIG-009,Ruhle 2023 CAF MARKER,27,A,6,5,1,0,0,0,0,0,1.36
+SIG-010,Ruhle 2023 CAF (EPIC),20,A,6,6,0,0,0,0,0,0,0.39
+SIG-012,Huang 2023 CAF 11-gene model,11,A,6,0,4,2,2,0,0,0,2.76
+SIG-001,Ren 2023 CAF 4-gene model,4,B,6,0,3,3,3,,,,3.8
+SIG-002,MCP-counter Fibroblasts,8,B,6,5,1,0,0,,,,1.65
+SIG-004,Zhang Y & Cheng 2023 CAFRS,7,B,5,0,3,2,2,,,,2.59
+SIG-006,Si 2024 CAF 8-gene model,8,B,6,1,3,2,2,,,,2.58
+SIG-007,Wang(LDDD) 2026 CAF 8-gene model,8,B,6,1,3,2,2,,,,2.9
+SIG-008,Wang S 2023 CAF 5-gene model,5,B,6,0,3,3,3,,,,3.26
+SIG-011,Zhang H 2023 CAF 8-gene model,8,B,6,2,3,1,1,,,,2.6

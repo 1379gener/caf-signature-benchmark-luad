@@ -1,0 +1,8 @@
+cohort,platform,n,events,event_rate,followup_median_yr_reverseKM,age_median,age_q1,age_q3,age_missing,male,female,sex_missing,stage_I,stage_geII,stage_missing
+TCGA_LUAD,"Illumina RNA-seq (STAR counts, GDC)",443,182,0.411,2.57,66,59,72,8,204,239,0,213,166,64
+GSE68465,GPL96,442,236,0.534,6.33,65,58,72,0,223,219,0,276,163,3
+GSE72094,GPL15048,398,113,0.284,2.49,70,64,76,0,176,222,0,254,139,5
+GSE31210,GPL570,204,30,0.147,5.08,61,55,65,0,95,109,0,162,42,0
+GSE50081,GPL570,127,51,0.402,5.49,69.92,62.79,75.69,0,65,62,0,92,35,0
+GSE30219,GPL570,83,43,0.518,9.67,60,55,69,0,65,18,0,79,4,0
+CPTAC_LUAD,RNA-seq (LinkedOmics .cct),110,,,,62,57,69,0,72,38,0,,,

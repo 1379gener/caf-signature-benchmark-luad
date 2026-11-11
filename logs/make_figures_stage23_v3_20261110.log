@@ -1,0 +1,15 @@
+  stage2_models_20261017.csv                    md5 f3b5e919d8944bca2820a49473799a48
+  stage2_diagnostics_20261018.csv               md5 eafaa89c2b8220fac49411268f5b0e0e
+  stage3_cor_hclust_20261024.rds                md5 69d08367c31c373ba502ff57156f2e4a
+  stage3_explore_fibro_prolif_20261025.csv      md5 151065509060f3d3e503c406e15be81a
+  stage3_readouts_long_20261024.csv             md5 349081cc890715851e6d09a2e6fba1d3
+    sig_id     N
+1: SIG-001     7
+2: SIG-004     7
+3: SIG-006     7
+4: SIG-007     7
+5: SIG-008     7
+6: SIG-011     7
+7: SIG-012     7
+  写出 Fig5_stage2_confounding_v3
+  写出 Fig6_stage3_readouts_v3

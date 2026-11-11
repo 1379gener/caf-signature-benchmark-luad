@@ -1,0 +1,96 @@
+found_via 计数（18 个候选）：
+
+    Added while reviewing sources                      Not recorded 
+                                7                                 3 
+Starting set: cited in SCANI work     Starting set: stromal readout 
+                                4                                 4 
+
+核对：
+  S3_classB_nullB              identical to input: TRUE
+  S4_all_combinations          identical to input: TRUE
+  S5_confounding               identical to input: TRUE
+  S6_fibroblast_proliferation  identical to input: TRUE
+  S7_SIG012_published_coef     identical to input: TRUE
+  S8a_null_summary_by_cohort   identical to input: TRUE
+  S8b_alternative_FDR          identical to input: TRUE
+  S1 rows 1–30 identical: TRUE ; rows: 31 
+  S2 rows 1–19, original columns identical: TRUE ; rows: 21 
+  含中文单元格总数: 0 
+                                                          status          id
+                                                          <char>      <char>
+ 1:                                                     included     SIG-001
+ 2:                                                     included     SIG-002
+ 3:                                                     included     SIG-003
+ 4:                                                     included     SIG-004
+ 5:                                                     included     SIG-005
+ 6:                                                     included     SIG-006
+ 7:                                                     included     SIG-007
+ 8:                                                     included     SIG-008
+ 9:                                                     included     SIG-009
+10:                                                     included     SIG-010
+11:                                                     included     SIG-011
+12:                                                     included     SIG-012
+13: included (added per analysis plan; developed by the authors) SCANI_myCAF
+14:                                                 excluded: E1        <NA>
+15:                                                 excluded: I1        <NA>
+16:                                                 excluded: I1        <NA>
+17:                                                 excluded: E2        <NA>
+18:                                                 excluded: E1        <NA>
+19:                                                 excluded: E1        <NA>
+20:                                  not assessed (starting set)        <NA>
+21:                                  not assessed (starting set)        <NA>
+                                                          status          id
+                                                          <char>      <char>
+                                                                                        name
+                                                                                      <char>
+ 1:                                                                Ren 2023 CAF 4-gene model
+ 2:                                                                  MCP-counter Fibroblasts
+ 3:                                                                ESTIMATE StromalSignature
+ 4:                                                               Zhang Y & Cheng 2023 CAFRS
+ 5:                                                      Navab 2011 CAF prognostic signature
+ 6:                                                                 Si 2024 CAF 8-gene model
+ 7: Wang(LDDD) 2026 CAF 8-gene model [first author Li W; corrected 2026-10-25, see Table S1]
+ 8:                                                             Wang S 2023 CAF 5-gene model
+ 9:                                                                    Koeck 2023 CAF MARKER
+10:                                                                    Koeck 2023 CAF (EPIC)
+11:                                                            Zhang H 2023 CAF 8-gene model
+12:                                                             Huang 2023 CAF 11-gene model
+13:                                                                    SCANI myCAF component
+14:                                                                               Cords 2024
+15:                                                                       EPIC CAF (package)
+16:                                                                        xCell Fibroblasts
+17:                                                                                Kong 2024
+18:                                                                                Chen 2025
+19:                                                                                Peng 2023
+20:                                                                                 Liu 2025
+21:                                                                Bagaev TME classification
+                                                                                        name
+                                                                                      <char>
+                                             found_via
+                                                <char>
+ 1:                  Starting set: cited in SCANI work
+ 2:                      Starting set: stromal readout
+ 3:                      Starting set: stromal readout
+ 4:                      Added while reviewing sources
+ 5:                      Added while reviewing sources
+ 6:                  Starting set: cited in SCANI work
+ 7:                      Added while reviewing sources
+ 8:                      Added while reviewing sources
+ 9:                                       Not recorded
+10:                                       Not recorded
+11:                      Added while reviewing sources
+12:                      Added while reviewing sources
+13: Developed by the authors (added per analysis plan)
+14:                  Starting set: cited in SCANI work
+15:                      Starting set: stromal readout
+16:                      Starting set: stromal readout
+17:                                       Not recorded
+18:                  Starting set: cited in SCANI work
+19:                      Added while reviewing sources
+20:                  Starting set: cited in SCANI work
+21:                      Starting set: stromal readout
+                                             found_via
+                                                <char>
+
+output: data_derived/supp_tables_20261110/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx 
+md5: 95a9d868a4910b8e3d931bcf30fcc33a 

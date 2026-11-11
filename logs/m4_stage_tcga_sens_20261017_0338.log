@@ -1,0 +1,19 @@
+SE md5: d25913eca87da6fd99958b568a87b751
+主分析编码文件: m4_stage_binary_20261017.csv
+两源均有值 158 人：二分类一致 153（96.8%），Cohen kappa 0.935
+
+来源分布：
+         source_sens     N
+              <char> <int>
+1:               GDC   379
+2: paper_Tumor.stage    29
+3:              <NA>    35
+
+主分析 vs 敏感性 的 stage_ge_II：
+      sens
+main     0   1 <NA>
+  0    213   0    0
+  1      0 166    0
+  <NA>   9  20   35
+
+写出： /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/m4_stage_binary_TCGA_sens_20261017.csv 

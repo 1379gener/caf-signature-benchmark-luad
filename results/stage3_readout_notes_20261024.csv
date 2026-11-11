@@ -1,0 +1,10 @@
+cohort,readout,n_genes,note
+TCGA_LUAD,ESTIMATE_Immune,139,""
+TCGA_LUAD,EPIC,,"The optimization didn't fully converge for some samples:
+TCGA-49-AAQV; TCGA-55-7726; TCGA-50-8459; TCGA-86-8074; TCGA-78-8648; TCGA-93-A4JQ; TCGA-93-A4JN; TCGA-95-7947; TCGA-55-7284; TCGA-67-4679; TCGA-55-7910; TCGA-55-A493; TCGA-97-8175; TCGA-86-8055
+ - check fit.gof for the convergeCode and convergeMessage"
+GSE68465,ESTIMATE_Immune,140,""
+GSE72094,ESTIMATE_Immune,139,""
+GSE31210,ESTIMATE_Immune,140,""
+GSE50081,ESTIMATE_Immune,140,""
+GSE30219,ESTIMATE_Immune,140,""

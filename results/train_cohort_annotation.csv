@@ -1,0 +1,13 @@
+sig_id,train_cohort,note,source
+"SIG-001","TCGA","SIG-001 Ren 2023：TCGA 训练","analyze_cohort_role.R L40–54"
+"SIG-002",NA,"SIG-002 MCP-counter：非预后模型，无训练队列","analyze_cohort_role.R L40–54"
+"SIG-003",NA,"SIG-003 ESTIMATE：非预后模型","analyze_cohort_role.R L40–54"
+"SIG-004","TCGA","SIG-004 Zhang Y：TCGA 内部拆分训练/测试","analyze_cohort_role.R L40–54"
+"SIG-005",NA,"SIG-005 Navab 2011：原代细胞培养对比，非队列训练","analyze_cohort_role.R L40–54"
+"SIG-006","TCGA","SIG-006 Si 2024：TCGA 训练","analyze_cohort_role.R L40–54"
+"SIG-007","待核实","SIG-007 LDDD 2026：全文获取受限，训练队列未确认","analyze_cohort_role.R L40–54"
+"SIG-008","GSE41271","SIG-008 Wang S 2023：★ GSE41271 训练，TCGA 是验证集","analyze_cohort_role.R L40–54"
+"SIG-009",NA,"SIG-009 Rühle CAF MARKER：综述汇总，非预后模型","analyze_cohort_role.R L40–54"
+"SIG-010",NA,"SIG-010 Rühle EPIC CAF：解卷积衍生，非预后模型","analyze_cohort_role.R L40–54"
+"SIG-011","TCGA","SIG-011 Zhang H 2023：TCGA 训练","analyze_cohort_role.R L40–54"
+"SIG-012","TCGA","SIG-012 Huang 2023：TCGA 训练","analyze_cohort_role.R L40–54"

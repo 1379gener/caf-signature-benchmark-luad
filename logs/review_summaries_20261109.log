@@ -1,0 +1,151 @@
+run: 2026-11-09 22:19:49 
+
+===== 1. 类 B 的 8 个通过组合在零分布 B（S3）下 =====
+Key: <cohort, sig_id>
+      cohort  sig_id         role   z_real   zA_p95     p_emp_A         q_A
+      <char>  <char>       <char>    <num>    <num>       <num>       <num>
+1:  GSE30219 SIG-007 原文验证队列 3.700426 2.932959 0.010989011 0.038461538
+2:  GSE30219 SIG-008 完全独立队列 3.778760 2.789469 0.006993007 0.038461538
+3: TCGA_LUAD SIG-001     开发队列 4.994409 3.801551 0.004995005 0.006993007
+4: TCGA_LUAD SIG-004     开发队列 6.747805 3.475757 0.000999001 0.002331002
+5: TCGA_LUAD SIG-006     开发队列 4.497480 2.993193 0.004995005 0.006993007
+6: TCGA_LUAD SIG-007     开发队列 8.038737 3.553882 0.000999001 0.002331002
+7: TCGA_LUAD SIG-008 原文验证队列 3.861977 3.536114 0.028971029 0.033799534
+8: TCGA_LUAD SIG-011     开发队列 7.271221 3.738412 0.000999001 0.002331002
+     zB_p95     p_emp_B coexpr_ratio coexpr_qc_pass
+      <num>       <num>        <num>         <lgcl>
+1: 2.878434 0.009990010     2.570662           TRUE
+2: 2.791375 0.009990010     3.218765           TRUE
+3: 3.879907 0.008991009   -14.520937          FALSE
+4: 3.055116 0.000999001     1.519561           TRUE
+5: 4.316172 0.030969031    21.728605           TRUE
+6: 3.340587 0.000999001     2.262493           TRUE
+7: 4.263699 0.082917083     2.224484           TRUE
+8: 3.752554 0.000999001     2.326453           TRUE
+8 个中共表达 QC 通过: 7 ；其中 p_emp_B < 0.05: 6 
+全部 41 个类 B 组合中 QC 通过: 33 ；coexpr_ratio < 0: 8 
+
+===== 2/3. 零分布 A：p95、随机成员 |z|>=1.96 比例、最小可检测 HR =====
+rds fields:
+         cohort          sig_id           class         n_genes       n_present 
+  "character 1"   "character 1"   "character 1"     "integer 1"     "integer 1" 
+       coverage       evaluable               n        n_events       low_power 
+    "numeric 1"     "logical 1"     "integer 1"     "integer 1"     "logical 1" 
+  missing_genes          z_real         hr_real           hr_lo           hr_hi 
+  "character 1"     "numeric 1"     "numeric 1"     "numeric 1"     "numeric 1" 
+          p_cox          n_used         ev_used         p_emp_A    n_fallback_A 
+    "numeric 1"     "integer 1"     "integer 1"     "numeric 1"     "integer 1" 
+         seed_A         p_emp_B          seed_B     coexpr_real coexpr_null_med 
+    "integer 1"     "numeric 1"     "integer 1"     "numeric 1"     "numeric 1" 
+   coexpr_ratio  coexpr_qc_pass       n_relax_B        z_null_A        z_null_B 
+    "numeric 1"     "logical 1"     "integer 1"  "numeric 1000"  "numeric 1000" 
+    elapsed_min          n_null  engine_version    registry_md5        run_time 
+    "numeric 1"     "integer 1"   "character 1"   "character 1"   "character 1" 
+null-A field used: z_null_A ；evaluable combos: 77 
+p95 与结果文件 zA_p95 的最大差: 5.329071e-15 
+      cohort     se_med n_used
+      <char>      <num>  <int>
+1: TCGA_LUAD 0.07596927     26
+2:  GSE68465 0.06552463     20
+3:  GSE72094 0.09329963     27
+4:  GSE31210 0.18116322     23
+5:  GSE50081 0.14224158     22
+6:  GSE30219 0.15847326     20
+       cohort  class events     se_med  p95_med  p95_min  p95_max hr_thr_med
+       <char> <char>  <int>      <num>    <num>    <num>    <num>      <num>
+ 1:  GSE68465      A    236 0.06552463 2.909236 2.312480 3.058757   1.210015
+ 2: TCGA_LUAD      A    182 0.07596927 3.098147 2.365802 3.369998   1.265381
+ 3:  GSE72094      A    113 0.09329963 3.963547 3.744991 4.128549   1.447482
+ 4:  GSE50081      A     51 0.14224158 3.003260 2.842146 3.131030   1.532942
+ 5:  GSE30219      A     43 0.15847326 2.805543 2.148137 2.978093   1.559910
+ 6:  GSE31210      A     30 0.18116322 3.079615 2.191103 3.299727   1.747155
+ 7:  GSE68465      B    236 0.06552463 2.953674 2.543307 3.288353   1.213540
+ 8: TCGA_LUAD      B    182 0.07596927 3.536114 2.887393 3.801551   1.308179
+ 9:  GSE72094      B    113 0.09329963 3.976983 3.456055 4.117963   1.449257
+10:  GSE50081      B     51 0.14224158 2.842216 2.726977 3.255879   1.498225
+11:  GSE30219      B     43 0.15847326 2.880439 2.384389 3.212936   1.578496
+12:  GSE31210      B     30 0.18116322 3.445388 2.990245 3.783335   1.866710
+    hr_thr_approx frac_sig_med frac_sig_min frac_sig_max
+            <num>        <num>        <num>        <num>
+ 1:      1.208494       0.1885        0.107        0.269
+ 2:      1.258160       0.2555        0.117        0.287
+ 3:      1.451880       0.4680        0.413        0.686
+ 4:      1.522785       0.3215        0.224        0.437
+ 5:      1.533943       0.1890        0.071        0.237
+ 6:      1.754630       0.2595        0.097        0.281
+ 7:      1.211995       0.2175        0.129        0.300
+ 8:      1.299675       0.3340        0.186        0.364
+ 9:      1.453716       0.3890        0.314        0.490
+10:      1.488829       0.2020        0.174        0.337
+11:      1.551563       0.1940        0.122        0.260
+12:      1.875807       0.3190        0.260        0.427
+随机成员 |z|>=1.96 比例，按类别（跨组合中位数 [范围]）：
+    class median   min   max
+   <char>  <num> <num> <num>
+1:      B 0.2600 0.122 0.490
+2:      A 0.2535 0.071 0.686
+
+===== 4. 全局 BH 敏感性 =====
+    class family_pass global_pass class_pass bysig_pass
+   <char>       <int>       <int>      <int>      <int>
+1:      A           1           1          0          1
+2:      B           8           3          6         10
+全局 BH 下通过的组合：
+      cohort      sig_id  class           p   q_global
+      <char>      <char> <char>       <num>      <num>
+1:  GSE31210 SCANI_myCAF      A 0.001998002 0.03846154
+2: TCGA_LUAD     SIG-004      B 0.000999001 0.02564103
+3: TCGA_LUAD     SIG-007      B 0.000999001 0.02564103
+4: TCGA_LUAD     SIG-011      B 0.000999001 0.02564103
+
+===== 5. 签名与 meta-PCNA 重叠 =====
+     sig_id n_sig n_overlap  frac structural_overlap  genes
+     <char> <int>     <int> <num>             <lgcl> <char>
+ 1: SIG-001     4         1 0.250              FALSE  CCNB1
+ 2: SIG-002     8         0 0.000              FALSE       
+ 3: SIG-003   141         0 0.000              FALSE       
+ 4: SIG-004     7         0 0.000              FALSE       
+ 5: SIG-005    11         0 0.000              FALSE       
+ 6: SIG-006     8         1 0.125              FALSE  CCNB1
+ 7: SIG-007     8         0 0.000              FALSE       
+ 8: SIG-008     5         0 0.000              FALSE       
+ 9: SIG-009    27         0 0.000              FALSE       
+10: SIG-010    20         0 0.000              FALSE       
+11: SIG-011     8         0 0.000              FALSE       
+12: SIG-012    11         0 0.000              FALSE       
+
+===== 6. TCGA：签名与增殖、成纤维细胞读数的 Spearman rho =====
+columns: MCP_Fibroblasts xCell_Fibroblasts Prolif_metaPCNA EPIC_CAFs 
+    readout MCP_Fibroblasts xCell_Fibroblasts Prolif_metaPCNA EPIC_CAFs
+     <char>           <num>             <num>           <num>     <num>
+ 1: SIG-001           0.063             -0.54           0.766     0.178
+ 2: SIG-002           0.996              0.52           0.117     0.898
+ 3: SIG-003           0.788              0.71          -0.167     0.704
+ 4: SIG-004           0.242             -0.36           0.542     0.332
+ 5: SIG-005           0.656              0.58          -0.184     0.605
+ 6: SIG-006          -0.066             -0.60           0.668     0.038
+ 7: SIG-007           0.194             -0.26           0.441     0.225
+ 8: SIG-008           0.365             -0.13           0.418     0.349
+ 9: SIG-009           0.884              0.59          -0.066     0.814
+10: SIG-010           0.799              0.71          -0.226     0.739
+11: SIG-011           0.399             -0.11           0.438     0.397
+12: SIG-012           0.043              0.50          -0.637    -0.046
+
+===== 7. 成纤维细胞读数单变量显著数；增殖指数 z =====
+             readout       model n_cohorts n_sig     z_min      z_max
+              <char>      <char>     <int> <int>     <num>      <num>
+1:   MCP_Fibroblasts univariable         6     2 -0.394499  2.4560626
+2:   MCP_Fibroblasts     +prolif         6     0 -0.382884  1.8388127
+3: xCell_Fibroblasts univariable         6     1 -2.327565 -0.4582811
+4: xCell_Fibroblasts     +prolif         6     0 -1.099143  0.7807044
+      cohort         readout events       HR        z
+      <char>          <char>  <int>    <num>    <num>
+1: TCGA_LUAD Prolif_metaPCNA    182 1.325223 3.935531
+2:  GSE68465 Prolif_metaPCNA    236 1.217429 2.986146
+3:  GSE72094 Prolif_metaPCNA    113 1.312945 3.004387
+4:  GSE31210 Prolif_metaPCNA     30 1.643728 3.205532
+5:  GSE50081 Prolif_metaPCNA     51 1.401543 2.543956
+6:  GSE30219 Prolif_metaPCNA     43 1.594238 3.024408
+补充表中含 Prolif 的文件：
+
+done: 2026-11-09 22:19:49 

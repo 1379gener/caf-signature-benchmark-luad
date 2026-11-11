@@ -1,0 +1,84 @@
+
+===== C0 完整性 =====
+  [PASS] registry md5（非缺失值 1 个）== 4ad3218931d95dfb6ee67a7ba07b9a75
+  [INFO] registry_md5 填充率 71/72
+  [PASS] engine_version 非缺失值唯一: 1
+  [FAIL] n_null 非缺失值 == 1000（实际 50,1000）
+  [PASS] 组合总数 == 72（实际 72）
+
+===== C1 覆盖率与可评估（SAP §4.2）=====
+  [PASS] 可评估 == 71（实际 71）
+  [PASS] 唯一不可评估 == GSE68465 × SIG-004
+  [PASS] 其覆盖率 ≈ 57.1%（实际 57.1%）
+  [PASS] 全部可评估组合覆盖率 >= 70%
+
+===== C2 队列样本量与 cohort_registry 一致（SAP §12-3）=====
+Key: <k>
+          k    cohort     n n_events n_reg ev_reg
+     <char>    <char> <int>    <int> <int>  <int>
+1: GSE30219  GSE30219    83       43    83     43
+2: GSE31210  GSE31210   204       30   204     30
+3: GSE50081  GSE50081   127       51   127     51
+4: GSE68465  GSE68465   442      236   442    236
+5: GSE72094  GSE72094   398      113   398    113
+6: TCGALUAD TCGA_LUAD   443      182   443    182
+  [PASS] 各队列 n 与 registry 一致
+  [PASS] 各队列事件数与 registry 一致
+
+===== C3 GSE31210 未降级（SAP §2.4）=====
+       n n_events
+   <int>    <int>
+1:   204       30
+  [PASS] GSE31210 n == 204（exclude 已应用）
+  [PASS] GSE31210 事件 == 30
+  [PASS] 事件数 >= 25 阈值 -> 计入主汇总，未降级
+  [PASS] 无任何队列触及 <25 阈值
+
+===== C4 ★ A/B 分开汇总，禁止合并（SAP §3.3 / §4.4）=====
+    class n组合 不可区分   比例
+   <char> <int>    <int> <char>
+1:      A    30       28  93.3%
+2:      B    41       28  68.3%
+  [PASS] A 类与 B 类分开呈现
+  [INFO] 合并值 56/71 —— ★ 仅供内部核对，禁止作为主结果报告
+  [PASS] A 类 signature 数 == 5（SAP §3.3）
+  [PASS] B 类 signature 数 == 7（SAP §3.3）
+
+===== C5 敏感性分析（SAP §5.2.1 第 3 条）=====
+     sig_id  class n_cohort pass_A pass_B_main pass_B_sens diff_B
+     <char> <char>    <int>  <int>       <int>       <int>  <int>
+ 1: SIG-001      B        6      3           0           4      4
+ 2: SIG-002      B        6      0           0           0      0
+ 3: SIG-003      A        6      0           0           0      0
+ 4: SIG-004      B        5      2           3           3      0
+ 5: SIG-005      A        6      0           0           0      0
+ 6: SIG-006      B        6      2           2           2      0
+ 7: SIG-007      B        6      2           4           4      0
+ 8: SIG-008      B        6      3           2           2      0
+ 9: SIG-009      A        6      0           0           0      0
+10: SIG-010      A        6      0           0           0      0
+11: SIG-011      B        6      1           1           1      0
+12: SIG-012      A        6      2           0           0      0
+  [PASS] 仅 SIG-001 的 diff_B != 0
+  [PASS] SIG-001: 0 -> 4
+  [PASS] 其余 11 条主分析与敏感性完全一致
+
+===== C6 p_emp 独立复算（SAP §12-2，至少 3 个 signature @ TCGA）=====
+  RDS 结构: list | 成员: cohort, sig_id, class, n_genes, n_present, coverage, evaluable, n, n_events, low_power, missing_genes, z_real, hr_real, hr_lo, hr_hi, p_cox, n_used, ev_used, p_emp_A, n_fallback_A, seed_A, p_emp_B, seed_B, coexpr_real, coexpr_null_med 
+    SIG-001  复算 0.004995  引擎 0.004995  OK
+    SIG-002  复算 0.251748  引擎 0.251748  OK
+    SIG-003  复算 0.600400  引擎 0.600400  OK
+  [PASS] 至少 3 个 signature 的 p_emp 复算一致（实际 3）
+
+===== C7 零分布成员 Cox z 复算（SAP §12-1，容差 1e-6）=====
+  [SKIP] 需从表达矩阵重跑 20 个零分布成员的 Cox —— 待 RDS 字段名确认后补实现
+
+===== C8 GSE72094 SCANI 回归测试（SAP §12-4）=====
+  [SKIP] 需 scoring_protocol 复算 vs Paper 1 锁定值 —— 待补
+
+===== C9 禁用数字扫描 =====
+  [INFO] text/ 与 tables/ 暂无正文文件，跳过
+  [PASS] data_derived 无禁用数字
+
+===== 结果：FAIL 1 · SKIP 2 =====
+★ 存在 SKIP 项，按 SAP §12「无 check 的数字视为未验证」，尚不具备定稿条件。

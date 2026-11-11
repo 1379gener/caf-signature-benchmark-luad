@@ -1,0 +1,13 @@
+sig_id,name,class,n_genes,source,doi,evidence_level,overlap_cohorts,train_cohort
+SIG-001,Ren 2023 CAF 4-gene model,B,4,Front Immunol 2023;14:1201573,10.3389/fimmu.2023.1201573,1,TCGA,TCGA
+SIG-002,MCP-counter Fibroblasts,B,8,MCPcounter GitHub master Signatures/genes.txt,-,2,-,""
+SIG-003,ESTIMATE StromalSignature,A,141,estimate 1.0.13 extdata/SI_geneset.gmt,-,2,-,""
+SIG-004,Zhang Y & Cheng 2023 CAFRS,B,7,Aging (Albany NY) 2023;15(11):4986-5006,10.18632/aging.204774,4,"TCGA, GSE41271",TCGA
+SIG-005,Navab 2011 CAF prognostic signature,A,11,PNAS 2011;108(17):7160-7165,10.1073/pnas.1014506108,3,-,""
+SIG-006,Si 2024 CAF 8-gene model,B,8,Sci Rep 2024;14:23243,10.1038/s41598-024-74336-1,4,"TCGA, GSE31210, GSE37745, GSE50081, GSE68465, GSE3141",TCGA
+SIG-007,"Wang(LDDD) 2026 CAF 8-gene model [first author Li W; corrected 2026-10-25, see Table S1]",B,8,Lett Drug Des Discov 2026 (PII S1570180826000631),10.1016/j.lddd.2026.100333,3,"TCGA, GSE30219",TCGA
+SIG-008,Wang S 2023 CAF 5-gene model,B,5,Cancer Immunol Immunother 2023;72:2423-2442,10.1007/s00262-023-03428-0,3,"TCGA, GSE41271, GSE37745, GSE42127",GSE41271
+SIG-009,Ruhle 2023 CAF MARKER,A,27,OncoImmunology 2023;12(1):2274130 Table S1,10.1080/2162402X.2023.2274130,5,TCGA,""
+SIG-010,Ruhle 2023 CAF (EPIC),A,20,OncoImmunology 2023;12(1):2274130 Table S1,10.1080/2162402X.2023.2274130,5,TCGA,""
+SIG-011,Zhang H 2023 CAF 8-gene model,B,8,Aging (Albany NY) 2023;15(14):6774-6797,10.18632/aging.204838,3,"TCGA, GSE31210, GSE37745, GSE50081, GSE72094",TCGA
+SIG-012,Huang 2023 CAF 11-gene model,A,11,J Thorac Dis 2023;15(3):1406-1425,10.21037/jtd-23-238,5,"TCGA, GSE30219, GSE31210, GSE72094",TCGA

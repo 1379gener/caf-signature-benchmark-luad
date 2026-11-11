@@ -1,0 +1,139 @@
+run: 2026-11-10 21:02:04 
+SCANI 候选文件：
+                                                                                                file
+                                                                                              <char>
+1: /home/kevin/thesis_LUAD_CAF/05_manuscripts/SCI-1_IJMS/tables/S1_Table_myCAF_signature_50genes.csv
+       n
+   <num>
+1:    50
+SCANI genes from: /home/kevin/thesis_LUAD_CAF/05_manuscripts/SCI-1_IJMS/tables/S1_Table_myCAF_signature_50genes.csv 
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD  done (13 组合)
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465   done (12 组合)
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094   done (13 组合)
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210   done (13 组合)
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081   done (13 组合)
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219   done (13 组合)
+
+检验的组合数: 77 （预期 77；若跳过 SCANI 则 71）
+z 值与主结果全部一致（差 < 1e-6）
+cox.zph p < 0.05 的组合数: 13 
+       cohort      sig_id  class     n events     z    hr ph_chisq     ph_p
+       <char>      <char> <char> <int>  <int> <num> <num>    <num>    <num>
+ 1:  GSE68465     SIG-001      B   442    236  3.71  1.30    23.65 1.16e-06
+ 2:  GSE68465     SIG-011      B   442    236  1.07  1.08    12.62 3.82e-04
+ 3:  GSE68465     SIG-007      B   442    236  2.54  1.17    12.47 4.13e-04
+ 4:  GSE68465     SIG-008      B   442    236  3.95  1.31    12.25 4.66e-04
+ 5:  GSE68465     SIG-006      B   442    236  2.43  1.17     7.51 6.12e-03
+ 6:  GSE30219     SIG-011      B    83     43  2.38  1.48     7.00 8.15e-03
+ 7: TCGA_LUAD     SIG-011      B   443    182  7.27  1.76     6.58 1.03e-02
+ 8:  GSE30219     SIG-008      B    83     43  3.78  2.07     6.36 1.17e-02
+ 9: TCGA_LUAD     SIG-001      B   443    182  4.99  1.47     5.50 1.90e-02
+10:  GSE72094     SIG-008      B   398    113  2.43  1.28     5.39 2.03e-02
+11:  GSE72094 SCANI_myCAF      A   398    113  2.77  1.32     4.30 3.81e-02
+12:  GSE72094     SIG-011      B   398    113  2.93  1.30     4.08 4.34e-02
+13: TCGA_LUAD     SIG-006      B   443    182  4.50  1.52     3.94 4.73e-02
+    hr_le3y hr_gt3y
+      <num>   <num>
+ 1:    1.62   0.909
+ 2:    1.30   0.818
+ 3:    1.36   0.945
+ 4:    1.58   1.008
+ 5:    1.33   0.970
+ 6:    1.91   1.165
+ 7:    1.87   1.324
+ 8:    2.81   1.526
+ 9:    1.63   1.105
+10:    1.25   1.732
+11:    1.28   2.127
+12:    1.36   0.509
+13:    1.68   1.139
+
+按类别：
+    class     n ph_viol
+   <char> <int>   <int>
+1:      A    36       1
+2:      B    41      12
+
+按队列：
+      cohort     n ph_viol
+      <char> <int>   <int>
+1:  GSE30219    13       2
+2:  GSE31210    13       0
+3:  GSE50081    13       0
+4:  GSE68465    12       5
+5:  GSE72094    13       3
+6: TCGA_LUAD    13       3
+
+done: 2026-11-10 21:03:29 

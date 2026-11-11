@@ -1,0 +1,243 @@
+
+======================================================================
+0. 锁定物与输入
+======================================================================
+  读入 m2_purity_TCGA_20261017.csv  md5 0ab986f1f2ec4e75ac138ac6043936f1
+  读入 m3_prolif_metaPCNA_20261017.csv  md5 7780ee8da5a128e7b6617ec6807b0d14
+  读入 m4_stage_binary_20261017.csv  md5 32d9e501c547c129da51aa4ad9f687af
+  读入 m4_stage_binary_TCGA_sens_20261017.csv  md5 0929c7b3e96b8276ab2b24bd0ce7b5b0
+
+======================================================================
+1. 逐组合拟合
+======================================================================
+  GSE30219  SIG-001 B  M1 z +2.86
+  GSE30219  SIG-002 B  M1 z +1.61
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219  SIG-003 A  M1 z +1.01
+  GSE30219  SIG-004 B  M1 z +2.44
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219  SIG-005 A  M1 z +0.26
+  GSE30219  SIG-006 B  M1 z +2.23
+  GSE30219  SIG-007 B  M1 z +3.70
+  GSE30219  SIG-008 B  M1 z +3.78
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219  SIG-009 A  M1 z +1.29
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219  SIG-010 A  M1 z -0.31
+  GSE30219  SIG-011 B  M1 z +2.38
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE30219  SIG-012 A  M1 z -2.84
+  GSE31210  SIG-001 B  M1 z +3.89
+  GSE31210  SIG-002 B  M1 z +2.30
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210  SIG-003 A  M1 z +1.07
+  GSE31210  SIG-004 B  M1 z +2.47
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210  SIG-005 A  M1 z -1.43
+  GSE31210  SIG-006 B  M1 z +2.73
+  GSE31210  SIG-007 B  M1 z +2.44
+  GSE31210  SIG-008 B  M1 z +2.73
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210  SIG-009 A  M1 z +2.28
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210  SIG-010 A  M1 z -0.66
+  GSE31210  SIG-011 B  M1 z +1.65
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE31210  SIG-012 A  M1 z -2.28
+  GSE50081  SIG-001 B  M1 z +2.93
+  GSE50081  SIG-002 B  M1 z +1.88
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081  SIG-003 A  M1 z +0.45
+  GSE50081  SIG-004 B  M1 z +2.59
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081  SIG-005 A  M1 z -0.41
+  GSE50081  SIG-006 B  M1 z +1.23
+  GSE50081  SIG-007 B  M1 z +1.89
+  GSE50081  SIG-008 B  M1 z +2.32
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081  SIG-009 A  M1 z +1.43
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081  SIG-010 A  M1 z -0.43
+  GSE50081  SIG-011 B  M1 z +2.83
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE50081  SIG-012 A  M1 z -2.64
+  GSE68465  SIG-001 B  M1 z +3.71
+  GSE68465  SIG-002 B  M1 z -0.48
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465  SIG-003 A  M1 z -0.80
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465  SIG-005 A  M1 z -0.96
+  GSE68465  SIG-006 B  M1 z +2.43
+  GSE68465  SIG-007 B  M1 z +2.54
+  GSE68465  SIG-008 B  M1 z +3.95
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465  SIG-009 A  M1 z +0.06
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465  SIG-010 A  M1 z -1.62
+  GSE68465  SIG-011 B  M1 z +1.07
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE68465  SIG-012 A  M1 z -2.69
+  GSE72094  SIG-001 B  M1 z +4.01
+  GSE72094  SIG-002 B  M1 z +1.48
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094  SIG-003 A  M1 z -0.54
+  GSE72094  SIG-004 B  M1 z +2.86
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094  SIG-005 A  M1 z -3.10
+  GSE72094  SIG-006 B  M1 z +4.06
+  GSE72094  SIG-007 B  M1 z +3.26
+  GSE72094  SIG-008 B  M1 z +2.43
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094  SIG-009 A  M1 z +1.53
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094  SIG-010 A  M1 z -0.36
+  GSE72094  SIG-011 B  M1 z +2.93
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  GSE72094  SIG-012 A  M1 z -4.17
+  TCGA_LUAD SIG-001 B  M1 z +4.99
+  TCGA_LUAD SIG-002 B  M1 z +1.69
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD SIG-003 A  M1 z -0.68
+  TCGA_LUAD SIG-004 B  M1 z +6.75
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD SIG-005 A  M1 z -0.73
+  TCGA_LUAD SIG-006 B  M1 z +4.50
+  TCGA_LUAD SIG-007 B  M1 z +8.04
+  TCGA_LUAD SIG-008 B  M1 z +3.86
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD SIG-009 A  M1 z +1.16
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD SIG-010 A  M1 z -0.28
+  TCGA_LUAD SIG-011 B  M1 z +7.27
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  TCGA_LUAD SIG-012 A  M1 z -3.40
+
+======================================================================
+2. 闸门：全样本 M1 与阶段 1 的 z_real
+======================================================================
+  组合 71；最大 |差| 2.66e-15
+
+======================================================================
+3. 衰减幅度（同样本）
+======================================================================
+
+  逐组合（attenuation_reported 仅在同样本 M1 |z| ≥ 1.96 时给出）：
+    cohort  sig_id comparison     n events  z_M1 HR_M1 HR_Mk   att
+    <char>  <char>     <char> <int>  <num> <num> <num> <num> <num>
+  GSE30219 SIG-001      M3@S3    83     43  2.86  1.54  1.08  0.83
+  GSE30219 SIG-002      M3@S3    83     43  1.61  1.29  1.23    NA
+  GSE30219 SIG-003      M3@S3    83     43  1.01  1.17  1.23    NA
+  GSE30219 SIG-004      M3@S3    83     43  2.44  1.49  1.21  0.52
+  GSE30219 SIG-005      M3@S3    83     43  0.26  1.04  0.99    NA
+       ---     ---        ---   ---    ---   ---   ---   ---   ---
+ TCGA_LUAD SIG-011 M4@S4_sens   278    110  6.05  1.85  1.78  0.07
+ TCGA_LUAD SIG-012      M2@S2   301    125 -2.95  0.78  0.79  0.04
+ TCGA_LUAD SIG-012      M3@S3   443    182 -3.40  0.79  0.91  0.58
+ TCGA_LUAD SIG-012      M4@S4   251     85 -1.96  0.82  0.94    NA
+ TCGA_LUAD SIG-012 M4@S4_sens   278    110 -2.47  0.81  1.01  1.05
+
+  M3（增殖）衰减：按队列汇总（仅 M1 有信号者）
+    cohort n_combo att_median att_min att_max
+    <char>   <int>      <num>   <num>   <num>
+  GSE30219       7       0.43    0.17    0.83
+  GSE31210       8       0.41   -0.86    1.13
+  GSE50081       5       0.36   -0.30    0.40
+  GSE68465       5       0.34   -0.08    0.51
+  GSE72094       8       0.21   -0.60    0.38
+ TCGA_LUAD       7       0.08    0.04    0.58
+
+  有拟合警告的模型： 0 
+
+======================================================================
+4. 写出
+======================================================================
+  /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/stage2_models_20261017.csv
+  /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/stage2_attenuation_20261017.csv
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+[1] GSVA_1.48.3         survival_3.5-7      data.table_1.18.2.1
+
+loaded via a namespace (and not attached):
+ [1] bitops_1.0-9                RSQLite_2.3.1              
+ [3] lattice_0.21-8              sparseMatrixStats_1.12.2   
+ [5] grid_4.3.1                  fastmap_1.2.0              
+ [7] blob_1.3.0                  Matrix_1.6-1               
+ [9] GSEABase_1.62.0             AnnotationDbi_1.62.2       
+[11] graph_1.78.0                GenomeInfoDb_1.36.4        
+[13] DBI_1.3.0                   httr_1.4.7                 
+[15] SingleCellExperiment_1.22.0 HDF5Array_1.28.1           
+[17] XML_3.99-0.23               Biostrings_2.68.1          
+[19] codetools_0.2-19            abind_1.4-8                
+[21] cli_3.6.5                   rlang_1.1.7                
+[23] crayon_1.5.3                XVector_0.40.0             
+[25] Biobase_2.60.0              bit64_4.6.0-1              
+[27] splines_4.3.1               cachem_1.1.0               
+[29] DelayedArray_0.26.7         otel_0.2.0                 
+[31] S4Arrays_1.0.6              beachmat_2.16.0            
+[33] tools_4.3.1                 parallel_4.3.1             
+[35] BiocParallel_1.34.2         memoise_2.0.1              
+[37] annotate_1.78.0             Rhdf5lib_1.22.1            
+[39] GenomeInfoDbData_1.2.10     SummarizedExperiment_1.30.2
+[41] BiocGenerics_0.46.0         rsvd_1.0.5                 
+[43] vctrs_0.7.2                 R6_2.6.1                   
+[45] png_0.1-9                   rhdf5_2.44.0               
+[47] matrixStats_1.5.0           stats4_4.3.1               
+[49] zlibbioc_1.46.0             KEGGREST_1.40.0            
+[51] BiocSingular_1.16.0         S4Vectors_0.38.2           
+[53] IRanges_2.34.1              bit_4.6.0                  
+[55] irlba_2.3.7                 ScaledMatrix_1.8.1         
+[57] Rcpp_1.1.1                  GenomicRanges_1.52.0       
+[59] rhdf5filters_1.12.1         MatrixGenerics_1.12.3      
+[61] xtable_1.8-8                DelayedMatrixStats_1.22.6  
+[63] compiler_4.3.1              RCurl_1.98-1.18            

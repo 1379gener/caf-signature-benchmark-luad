@@ -1,0 +1,212 @@
+  purity     m2_purity_TCGA_20261017.csv  md5 0ab986f1f2ec4e75ac138ac6043936f1
+  prolif     m3_prolif_metaPCNA_20261017.csv  md5 7780ee8da5a128e7b6617ec6807b0d14
+  stage      m4_stage_binary_20261017.csv  md5 32d9e501c547c129da51aa4ad9f687af
+  stage_sens m4_stage_binary_TCGA_sens_20261017.csv  md5 0929c7b3e96b8276ab2b24bd0ce7b5b0
+  models     stage2_models_20261017.csv  md5 f3b5e919d8944bca2820a49473799a48
+  att        stage2_attenuation_20261017.csv  md5 3d0e80e32304f2a96d5495ce34a944b1
+
+======================================================================
+1. 逐组合相关与共线性
+======================================================================
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+  VIF 与实测 SE 比的 Spearman： 0.905 （理论上 SE 比 ≈ √VIF）
+  写出 /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/stage2_diagnostics_20261018.csv
+       cohort  sig_id  z_M1 rho_prolif   VIF SE_ratio   att
+       <char>  <char> <num>      <num> <num>    <num> <num>
+ 1:  GSE30219 SIG-001  2.86       0.92   6.4     2.33  0.83
+ 2:  GSE31210 SIG-001  3.89       0.90   5.8     2.62 -0.86
+ 3:  GSE50081 SIG-001  2.93       0.88   4.5     2.51 -0.30
+ 4:  GSE68465 SIG-001  3.71       0.84   3.3     1.78 -0.08
+ 5:  GSE72094 SIG-001  4.01       0.89   4.5     2.15 -0.60
+ 6: TCGA_LUAD SIG-001  4.99       0.77   2.4     1.45  0.05
+ 7:  GSE30219 SIG-002  1.61       0.14   1.0     1.07    NA
+ 8:  GSE31210 SIG-002  2.30       0.29   1.1     1.02  0.28
+ 9:  GSE50081 SIG-002  1.88       0.06   1.0     1.01    NA
+10:  GSE68465 SIG-002 -0.48       0.03   1.0     1.01    NA
+11:  GSE72094 SIG-002  1.48       0.10   1.0     1.00    NA
+12: TCGA_LUAD SIG-002  1.69       0.12   1.0     1.02    NA
+13:  GSE30219 SIG-003  1.01      -0.07   1.0     1.03    NA
+14:  GSE31210 SIG-003  1.07       0.02   1.0     1.02    NA
+15:  GSE50081 SIG-003  0.45      -0.16   1.0     1.05    NA
+16:  GSE68465 SIG-003 -0.80      -0.19   1.0     1.04    NA
+17:  GSE72094 SIG-003 -0.54      -0.08   1.0     1.03    NA
+18: TCGA_LUAD SIG-003 -0.68      -0.17   1.0     1.04    NA
+19:  GSE30219 SIG-004  2.44       0.60   1.6     1.17  0.52
+20:  GSE31210 SIG-004  2.47       0.51   1.3     1.20  0.53
+21:  GSE50081 SIG-004  2.59       0.49   1.3     1.24  0.36
+22:  GSE72094 SIG-004  2.86       0.55   1.4     1.20  0.38
+23: TCGA_LUAD SIG-004  6.75       0.54   1.3     1.22  0.05
+24:  GSE30219 SIG-005  0.26       0.00   1.0     1.05    NA
+25:  GSE31210 SIG-005 -1.43      -0.46   1.3     1.26    NA
+26:  GSE50081 SIG-005 -0.41      -0.25   1.1     1.08    NA
+27:  GSE68465 SIG-005 -0.96      -0.33   1.1     1.08    NA
+28:  GSE72094 SIG-005 -3.10      -0.17   1.0     1.04  0.15
+29: TCGA_LUAD SIG-005 -0.73      -0.18   1.0     1.04    NA
+30:  GSE30219 SIG-006  2.23       0.74   1.9     1.18  0.72
+31:  GSE31210 SIG-006  2.73       0.71   2.3     1.57  0.66
+32:  GSE50081 SIG-006  1.23       0.67   1.7     1.28    NA
+33:  GSE68465 SIG-006  2.43       0.55   1.4     1.18  0.51
+34:  GSE72094 SIG-006  4.06       0.68   1.8     1.32  0.05
+35: TCGA_LUAD SIG-006  4.50       0.67   1.6     1.24  0.21
+36:  GSE30219 SIG-007  3.70       0.38   1.2     1.02  0.22
+37:  GSE31210 SIG-007  2.44       0.54   1.5     1.24  0.63
+38:  GSE50081 SIG-007  1.89       0.47   1.3     1.15    NA
+39:  GSE68465 SIG-007  2.54       0.37   1.2     1.07  0.34
+40:  GSE72094 SIG-007  3.26       0.40   1.2     1.09  0.24
+41: TCGA_LUAD SIG-007  8.04       0.44   1.3     1.12  0.04
+42:  GSE30219 SIG-008  3.78       0.49   1.3     1.08  0.17
+43:  GSE31210 SIG-008  2.73       0.43   1.2     1.17  0.30
+44:  GSE50081 SIG-008  2.32       0.46   1.3     1.15  0.40
+45:  GSE68465 SIG-008  3.95       0.42   1.2     1.07  0.17
+46:  GSE72094 SIG-008  2.43       0.29   1.1     1.01  0.22
+47: TCGA_LUAD SIG-008  3.86       0.42   1.2     1.07  0.27
+48:  GSE30219 SIG-009  1.29       0.02   1.0     0.97    NA
+49:  GSE31210 SIG-009  2.28       0.20   1.0     0.99  0.28
+50:  GSE50081 SIG-009  1.43       0.00   1.0     1.01    NA
+51:  GSE68465 SIG-009  0.06      -0.04   1.0     1.00    NA
+52:  GSE72094 SIG-009  1.53       0.08   1.0     0.99    NA
+53: TCGA_LUAD SIG-009  1.16      -0.07   1.0     1.01    NA
+54:  GSE30219 SIG-010 -0.31      -0.19   1.0     1.11    NA
+55:  GSE31210 SIG-010 -0.66      -0.24   1.1     1.05    NA
+56:  GSE50081 SIG-010 -0.43      -0.32   1.1     1.10    NA
+57:  GSE68465 SIG-010 -1.62      -0.28   1.1     1.07    NA
+58:  GSE72094 SIG-010 -0.36      -0.14   1.0     1.02    NA
+59: TCGA_LUAD SIG-010 -0.28      -0.23   1.0     1.07    NA
+60:  GSE30219 SIG-011  2.38       0.30   1.1     1.00  0.21
+61:  GSE31210 SIG-011  1.65       0.39   1.2     1.09    NA
+62:  GSE50081 SIG-011  2.83       0.33   1.1     1.02  0.21
+63:  GSE68465 SIG-011  1.07       0.31   1.1     1.02    NA
+64:  GSE72094 SIG-011  2.93       0.34   1.2     1.09  0.34
+65: TCGA_LUAD SIG-011  7.27       0.44   1.3     1.08  0.08
+66:  GSE30219 SIG-012 -2.84      -0.58   1.5     1.13  0.43
+67:  GSE31210 SIG-012 -2.28      -0.66   2.1     1.63  1.13
+68:  GSE50081 SIG-012 -2.64      -0.64   1.6     1.42  0.39
+69:  GSE68465 SIG-012 -2.69      -0.45   1.2     1.13  0.36
+70:  GSE72094 SIG-012 -4.17      -0.55   1.4     1.23  0.19
+71: TCGA_LUAD SIG-012 -3.40      -0.64   1.6     1.32  0.58
+       cohort  sig_id  z_M1 rho_prolif   VIF SE_ratio   att
+       <char>  <char> <num>      <num> <num>    <num> <num>
+
+======================================================================
+2. 事实清单
+======================================================================
+# 阶段 2 事实清单（20261018，sci2_stage2_diagnostics.R 现算）
+
+来源文件：
+- m2_purity_TCGA_20261017.csv（md5 0ab986f1f2ec4e75ac138ac6043936f1）
+- m3_prolif_metaPCNA_20261017.csv（md5 7780ee8da5a128e7b6617ec6807b0d14）
+- m4_stage_binary_20261017.csv（md5 32d9e501c547c129da51aa4ad9f687af）
+- m4_stage_binary_TCGA_sens_20261017.csv（md5 0929c7b3e96b8276ab2b24bd0ce7b5b0）
+- stage2_models_20261017.csv（md5 f3b5e919d8944bca2820a49473799a48）
+- stage2_attenuation_20261017.csv（md5 3d0e80e32304f2a96d5495ce34a944b1）
+
+## F1 一致性
+- 全样本 M1 的 z 与阶段 1 RDS 的 z_real：71 个组合最大差 5.3e-15；阶段 2 分数即阶段 1 分数。
+
+## F2 纯度（M2，仅 TCGA，Aran 2015 ABSOLUTE，n = 301）
+- M1 有信号的 7 个签名（SIG-001/SIG-004/SIG-006/SIG-007/SIG-008/SIG-011/SIG-012），M2 衰减 -0.06 至 0.04；与纯度的 Spearman -0.16 至 0.18。
+- 其余 5 个签名（SIG-002/SIG-003/SIG-005/SIG-009/SIG-010）与纯度的 Spearman -0.63 至 -0.45，M1 均无信号（|z| < 1.96）。
+- 可写：有信号的签名与纯度近乎不相关，故 M2 几乎不改变其 HR；与纯度相关的签名本身无预后信号。
+- 不可写：『CAF 签名不受纯度影响』『纯度不是混杂因素』。仅一个队列有纯度；覆盖 67.9%。
+
+## F3 增殖（M3，6 队列）
+- M1 有信号的组合 40 个；M3 衰减中位 0.27（四分位 0.16 至 0.41）；>0.5 的 9 个；为负的 4 个；校正后仍 P<0.05 的 17 个。
+- 有信号组合中 |分数与增殖的 Spearman| 与 M3 衰减的 Spearman 为 0.04：衰减幅度与增殖相关强度几乎无关。
+- 有信号组合的分数与增殖指数 Spearman：-0.66 至 0.92（含负相关的 SIG-012）。
+- TCGA 内同为有信号的签名：M3 衰减中位 0.08，M2 衰减中位 0.01（SAP 事前预期增殖校正的衰减大于纯度校正）。
+- 可写：增殖校正使多数有信号组合的 HR 部分减弱，减弱幅度在组合间差异大。
+- 不可写：『增殖解释了约 X% 的预后信号』（衰减幅度在高共线时不可解释，见 F4）；『由增殖驱动』。
+
+## F4 共线性（SIG-001）
+- SIG-001 与增殖指数 Spearman 0.77 至 0.92；M3 的 VIF 2.38 至 6.35；M3 / M1 的 SE 比 1.45 至 2.62。
+- 负衰减的 4 个组合：GSE31210 -0.86；GSE50081 -0.30；GSE68465 -0.08；GSE72094 -0.60，均为 SIG-001。
+- 权重：EXO1、CCNB1 为正，CLEC3B、CD302 为负（registry genes/SIG-001_weights.csv）；meta-PCNA 重叠仅 CCNB1（1/4）。
+- 可写：SIG-001 分数与增殖指数高度相关，M3 中两者共线，签名效应与增殖效应无法分离，其衰减值不作解释。
+- 不可写：『校正增殖后 SIG-001 信号增强』；『SIG-001 一半基因属 meta-PCNA』。
+
+## F5 完全校正（M4，仅 TCGA）
+- 主分析（GDC 分期，n = 251，85 事件）：M1 有信号 6 个，衰减 -0.08 至 0.44，M4 后仍 P<0.05 的 5 个。
+- 敏感性（分期补充，n = 278，110 事件）：M1 有信号 7 个，衰减 -0.13 至 1.05，仍 P<0.05 的 5 个。
+- 分期缺失与结局：GDC 有分期 379 人中事件 123（32.5%）；缺失 64 人中事件 59（92.2%）。主分析的完整病例存在选择。
+- 不可写：基于单一队列外推到其他队列；TCGA 是 SIG-001/004/006/011/012 的开发队列。
+
+## F6 不可计算项
+- 5 个 GEO 队列（GSE68465/72094/31210/50081/30219）无与表达无关的纯度来源，M2/M4 按 SAP §7.2 不计算
+  （SAP 原文写『四个 GEO 微阵列队列』，实为 5 个，属文字笔误）；CPTAC 无生存数据。
+
+  写出 /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/stage2_facts_20261018.md
+
+======================================================================
+3. SAP v1.2 §8（阶段 3）原文
+======================================================================
+  587  8　冗余与相关性分析
+  588  
+  589    1. 在每个队列内计算全部被测 signature 分数的两两 Spearman 相关矩阵。
+  590  
+  591    2. 与通用基质 / 免疫解卷积读数一并纳入相关矩阵。
+  592  
+  593    3. 对相关矩阵做层次聚类（距离 = 1 −
+  594    |rho|，ward.D2），报告聚类结构在各队列间的一致性。
+  595  
+  596    4. 直接的预后表现横向比较：同一队列、同一 Cox 模型、同一终点、同一
+  597    per-SD 尺度。
+  598  

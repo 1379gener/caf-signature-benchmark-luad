@@ -1,0 +1,31 @@
+meta-PCNA gene set
+
+Source: Venet D, Dumont JE, Detours V. Most Random Gene Expression Signatures
+        Are Significantly Associated with Breast Cancer Outcome.
+        PLoS Comput Biol. 2011;7(10):e1002240. Table S1.
+        doi:10.1371/journal.pcbi.1002240
+Source PDF md5: f3e1db9f7afc6ecbb5cc404c906e61e2
+Extracted:      2026-09-08 01:36
+
+Original definition (paper Methods):
+  Pearson correlation between PCNA and all genes in Ge et al. 2005 (GDS1096,
+  36 normal tissue samples spanning 27 organs); top 1% most positively
+  correlated retained, i.e. 131 of 13,077 genes.
+  meta-PCNA index = MEDIAN expression of these genes (not mean, not ssGSEA).
+
+  Defined on NORMAL tissue, therefore adjusting tumour data for it
+  does not introduce circularity.
+
+Genes parsed:      131
+Renamed to current HGNC: 14
+Retired Entrez IDs:      0
+Final unique symbols:    131
+
+NOTE ON ADJUSTMENT METHOD:
+  Venet et al. adjusted the expression matrix gene-by-gene (lm on the
+  meta-PCNA index, replacing each value by residual + cohort mean) and
+  then re-scored the signature.
+  This study follows SAP 7.1 instead: the proliferation index enters the
+  Cox model as a covariate (model M3). The SAP approach is more
+  conservative; attenuation reported here is therefore not directly
+  comparable to the near-complete abrogation reported by Venet et al.

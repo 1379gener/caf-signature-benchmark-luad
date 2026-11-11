@@ -1,0 +1,13 @@
+  S2_registry                  identical to input: TRUE
+  S3_classB_nullB              identical to input: TRUE
+  S4_all_combinations          identical to input: TRUE
+  S5_confounding               identical to input: TRUE
+  S6_fibroblast_proliferation  identical to input: TRUE
+  S7_SIG012_published_coef     identical to input: TRUE
+  S8a_null_summary_by_cohort   identical to input: TRUE
+  S8b_alternative_FDR          identical to input: TRUE
+  S1 rows 1–31 identical: TRUE ; rows: 32 
+  S8c rows: 77  violated: 13 
+  中文单元格: 0 
+output: data_derived/supp_tables_20261110b/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx 
+md5: e4b9647283a4af0f8cba5767fd547de7 

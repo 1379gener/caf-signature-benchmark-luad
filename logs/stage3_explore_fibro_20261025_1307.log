@@ -1,0 +1,38 @@
+读数文件 stage3_readouts_long_20261024.csv  md5 349081cc890715851e6d09a2e6fba1d3
+       cohort           readout       model     n events    HR        CI     z     p rho_prolif
+       <char>            <char>      <char> <int>  <num> <num>    <char> <num> <num>      <num>
+ 1:  GSE30219   MCP_Fibroblasts univariable    83     43  1.34 0.98–1.83  1.86 0.063       0.20
+ 2:  GSE30219   MCP_Fibroblasts     +prolif    83     43  1.27 0.91–1.77  1.39 0.160       0.20
+ 3:  GSE31210   MCP_Fibroblasts univariable   204     30  1.61 1.10–2.36  2.46 0.014       0.37
+ 4:  GSE31210   MCP_Fibroblasts     +prolif   204     30  1.38 0.93–2.06  1.58 0.110       0.37
+ 5:  GSE50081   MCP_Fibroblasts univariable   127     51  1.36 0.99–1.87  1.88 0.061       0.08
+ 6:  GSE50081   MCP_Fibroblasts     +prolif   127     51  1.32 0.95–1.82  1.67 0.095       0.08
+ 7:  GSE68465   MCP_Fibroblasts univariable   442    236  0.97 0.86–1.11 -0.39 0.690       0.03
+ 8:  GSE68465   MCP_Fibroblasts     +prolif   442    236  0.98 0.86–1.11 -0.38 0.700       0.03
+ 9:  GSE72094   MCP_Fibroblasts univariable   398    113  1.22 1.00–1.48  1.99 0.046       0.14
+10:  GSE72094   MCP_Fibroblasts     +prolif   398    113  1.20 0.99–1.46  1.84 0.066       0.14
+11: TCGA_LUAD   MCP_Fibroblasts univariable   443    182  1.14 1.00–1.31  1.90 0.057       0.16
+12: TCGA_LUAD   MCP_Fibroblasts     +prolif   443    182  1.11 0.96–1.28  1.44 0.150       0.16
+13:  GSE30219 xCell_Fibroblasts univariable    83     43  0.87 0.63–1.19 -0.88 0.380      -0.48
+14:  GSE30219 xCell_Fibroblasts     +prolif    83     43  1.10 0.77–1.58  0.53 0.590      -0.48
+15:  GSE31210 xCell_Fibroblasts univariable   204     30  0.59 0.37–0.92 -2.33 0.020      -0.54
+16:  GSE31210 xCell_Fibroblasts     +prolif   204     30  0.75 0.45–1.25 -1.10 0.270      -0.54
+17:  GSE50081 xCell_Fibroblasts univariable   127     51  0.90 0.67–1.21 -0.67 0.500      -0.49
+18:  GSE50081 xCell_Fibroblasts     +prolif   127     51  1.15 0.81–1.63  0.78 0.430      -0.49
+19:  GSE68465 xCell_Fibroblasts univariable   442    236  0.97 0.85–1.11 -0.46 0.650      -0.38
+20:  GSE68465 xCell_Fibroblasts     +prolif   442    236  1.06 0.92–1.22  0.76 0.450      -0.38
+21:  GSE72094 xCell_Fibroblasts univariable   398    113  0.92 0.76–1.12 -0.83 0.410      -0.32
+22:  GSE72094 xCell_Fibroblasts     +prolif   398    113  1.02 0.83–1.26  0.19 0.850      -0.32
+23: TCGA_LUAD xCell_Fibroblasts univariable   443    182  0.89 0.76–1.03 -1.53 0.130      -0.47
+24: TCGA_LUAD xCell_Fibroblasts     +prolif   443    182  1.02 0.86–1.21  0.20 0.840      -0.47
+       cohort           readout       model     n events    HR        CI     z     p rho_prolif
+       <char>            <char>      <char> <int>  <num> <num>    <char> <num> <num>      <num>
+
+汇总（逐读数）：
+Key: <readout>
+             readout n_cohort uni_dir adj_dir uni_sig adj_sig z_uni_median z_adj_median
+              <char>    <int>  <char>  <char>   <int>   <int>        <num>        <num>
+1:   MCP_Fibroblasts        6   5+/1−   5+/1−       2       0         1.89         1.51
+2: xCell_Fibroblasts        6   0+/6−   5+/1−       1       0        -0.86         0.37
+
+写出 /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/stage3_explore_fibro_prolif_20261025.csv

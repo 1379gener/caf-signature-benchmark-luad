@@ -1,0 +1,26 @@
+input md5: 29945344fcd5f3d50fb2631ad6907204 
+
+核对：
+  S2_registry                  identical to input: TRUE
+  S3_classB_nullB              identical to input: TRUE
+  S4_all_combinations          identical to input: TRUE
+  S5_confounding               identical to input: TRUE
+  S7_SIG012_published_coef     identical to input: TRUE
+  S1 rows 1–28 identical: TRUE ; rows: 30 
+  S6 rows 1–24 identical: TRUE ; rows: 30 
+  含中文字符的单元格数（按 sheet）：
+                     README            S1_deviation_log 
+                          0                           0 
+                S2_registry             S3_classB_nullB 
+                          0                           0 
+        S4_all_combinations              S5_confounding 
+                          0                           0 
+S6_fibroblast_proliferation    S7_SIG012_published_coef 
+                          0                           0 
+ S8a_null_summary_by_cohort         S8b_alternative_FDR 
+                          0                           0 
+          Column_dictionary 
+                          0 
+
+output: data_derived/supp_tables_20261109/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx 
+md5: 5c5cc692934a1291709e10a8e9c571bb 

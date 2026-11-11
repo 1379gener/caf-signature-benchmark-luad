@@ -1,0 +1,50 @@
+  classA_scani_bh_20261025.csv             md5 a1b55b19d5686b5bee0a5e9dbed538b1
+  sap6_bh_combo_20261025.csv               md5 c76ecc32ec425fd50b82447dfc6f0ace
+  posthoc_checks_20261025.csv              md5 4a27f1bea5f99754df51fae26d63bfcb
+  scani_supp_summary_20261025.csv          md5 9b8476dbbfbcb39bff7bc61d0134d3ab
+  results_extended_20261016.csv            md5 227257a084d793c142944ceb7732859a
+  signature_registry_locked_20260903.csv   md5 4ad3218931d95dfb6ee67a7ba07b9a75
+  S4_all_combinations.csv                  md5 f776690fa708661978a9eace0df12336
+
+Fig 1 计数（按类别）：
+Key: <class>
+    class no_signal not_specific stronger
+   <char>     <int>        <int>    <int>
+1:      A        25           10        1
+2:      B         9           24        8
+
+Fig 2 低于对角线：
+    class     n below
+   <char> <int> <int>
+1:      A    36    33
+2:      B    41    28
+
+Fig 3：
+    class         role     n   raw    bh
+   <char>       <char> <int> <int> <int>
+1:      A 原文验证队列     6     1     0
+2:      A 完全独立队列    28     1     1
+3:      A     开发队列     2     1     0
+4:      B 原文验证队列     8     2     2
+5:      B 完全独立队列    28     6     1
+6:      B     开发队列     5     5     5
+
+Fig 4：
+    sig_id ratio_z ratio_hr
+    <char>   <num>    <num>
+1: SIG-001    1.35     1.02
+2: SIG-004    2.67     1.41
+3: SIG-006    1.85     1.03
+4: SIG-007    3.17     2.11
+5: SIG-011    3.06     1.96
+6: SIG-012    1.26     0.72
+
+输出：
+[1] "Fig1_signal_heatmap_v2_20261109.pdf"  
+[2] "Fig1_signal_heatmap_v2_20261109.png"  
+[3] "Fig2_real_vs_null_v2_20261109.pdf"    
+[4] "Fig2_real_vs_null_v2_20261109.png"    
+[5] "Fig3_pass_by_role_v2_20261109.pdf"    
+[6] "Fig3_pass_by_role_v2_20261109.png"    
+[7] "Fig4_overfit_gradient_v2_20261109.pdf"
+[8] "Fig4_overfit_gradient_v2_20261109.png"

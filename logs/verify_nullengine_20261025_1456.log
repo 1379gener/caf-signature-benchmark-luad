@@ -1,0 +1,230 @@
+verify_nullengine  2026-10-25 14:56:16  workers 6
+日志 /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/logs/verify_nullengine_20261025_1456.log
+null_engine.R md5 7ef1e0b581c41b39a406063af1ec6f44
+ENGINE: match_tol 0.2 / relax 0.35 / max_resample 50 / coexpr_min_ratio 0.7
+
+======================================================================
+0. 队列
+======================================================================
+  TCGA_LUAD  n  443  事件 182  候选池 17362
+  GSE68465   n  442  事件 236  候选池 13039
+  GSE72094   n  398  事件 113  候选池 22115
+  GSE31210   n  204  事件  30  候选池 21367
+  GSE50081   n  127  事件  51  候选池 21367
+  GSE30219   n   83  事件  43  候选池 21367
+  [PASS] R0    可评估且含零分布的组合数                       期望 71       实得 71
+
+H 抽中的 20 个成员（抽样 seed 20261025）：
+    cohort  sig_id  class   type member
+    <char>  <char> <char> <char>  <int>
+ TCGA_LUAD SIG-010      A      B    805
+  GSE72094 SIG-006      B      A    626
+  GSE30219 SIG-012      A      A    748
+ TCGA_LUAD SIG-006      B      A    384
+  GSE50081 SIG-005      A      B    445
+  GSE31210 SIG-011      B      A    847
+  GSE31210 SIG-002      B      A    823
+  GSE31210 SIG-008      B      B    884
+  GSE30219 SIG-003      A      B    759
+  GSE30219 SIG-007      B      A    704
+  GSE72094 SIG-005      A      A    797
+  GSE68465 SIG-009      A      A    509
+  GSE68465 SIG-012      A      A    927
+  GSE68465 SIG-001      B      A    207
+ TCGA_LUAD SIG-011      B      B    788
+  GSE72094 SIG-002      B      A    580
+  GSE30219 SIG-011      B      A    491
+ TCGA_LUAD SIG-002      B      B    476
+  GSE50081 SIG-007      B      A    903
+  GSE72094 SIG-011      B      A    453
+    cohort  sig_id  class   type member
+    <char>  <char> <char> <char>  <int>
+
+======================================================================
+3. 逐组合重抽（71 个组合，6 进程）
+======================================================================
+用时 18.2 分钟
+
+======================================================================
+4. H：20 个零分布成员的 Cox z 独立复算
+======================================================================
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+    cohort  sig_id  class   type member     k z_recomputed      z_rds abs_diff
+    <char>  <char> <char> <char>  <int> <int>        <num>      <num>    <num>
+ TCGA_LUAD SIG-010      A      B    805    19    1.7894929  1.7894929        0
+  GSE72094 SIG-006      B      A    626     7    1.6051599  1.6051599        0
+  GSE30219 SIG-012      A      A    748    11    1.0719092  1.0719092        0
+ TCGA_LUAD SIG-006      B      A    384     7    1.7894665  1.7894665        0
+  GSE50081 SIG-005      A      B    445    11    0.2360106  0.2360106        0
+  GSE31210 SIG-011      B      A    847     8    2.2416909  2.2416909        0
+  GSE31210 SIG-002      B      A    823     8   -0.4488096 -0.4488096        0
+  GSE31210 SIG-008      B      B    884     5    2.0731741  2.0731741        0
+  GSE30219 SIG-003      A      B    759   141   -2.5972824 -2.5972824        0
+  GSE30219 SIG-007      B      A    704     8   -0.5802636 -0.5802636        0
+  GSE72094 SIG-005      A      A    797    11   -1.6627827 -1.6627827        0
+  GSE68465 SIG-009      A      A    509    26   -0.2821958 -0.2821958        0
+  GSE68465 SIG-012      A      A    927     9   -2.2934529 -2.2934529        0
+  GSE68465 SIG-001      B      A    207     4    1.7442883  1.7442883        0
+ TCGA_LUAD SIG-011      B      B    788     8    0.9967976  0.9967976        0
+  GSE72094 SIG-002      B      A    580     8   -2.1694679 -2.1694679        0
+  GSE30219 SIG-011      B      A    491     8    1.1836046  1.1836046        0
+ TCGA_LUAD SIG-002      B      B    476     8    2.7172116  2.7172116        0
+  GSE50081 SIG-007      B      A    903     8    1.1719114  1.1719114        0
+  GSE72094 SIG-011      B      A    453     8   -1.8040454 -1.8040454        0
+    cohort  sig_id  class   type member     k z_recomputed      z_rds abs_diff
+    <char>  <char> <char> <char>  <int> <int>        <num>      <num>    <num>
+
+======================================================================
+5. 检查
+======================================================================
+  [PASS] H1    20 个成员 |z 复算 − z_RDS| > 1e-6 的个数         期望 0        实得 0
+  [PASS] R1    seed 与 RDS 记录不一致的组合数                   期望 0        实得 0
+  [PASS] R2    零分布 A 重抽与引擎不同的组合数              期望 0        实得 0
+  [PASS] R3    零分布 A 相邻箱退让计数与 RDS 不一致的组合数 期望 0        实得 0
+  [PASS] R4    共表达（真实签名）与 RDS 不一致的组合数   期望 0        实得 0
+  [PASS] R5    前 200 模块共表达中位数与 RDS 不一致的组合数 期望 0        实得 0
+  [PASS] R6    前 200 模块的 QC 判定与 RDS 不一致的组合数   期望 0        实得 0
+  [PASS] R7    第 51 次采用数与 RDS 的 n_relax_B 不一致的组合数 期望 0        实得 0
+
+  —— 以下为计数（0 只是「无影响」的参照，不是断言）
+  [PASS] E1    零分布 A 全池兜底（引擎不记录）总次数     期望 0        实得 0
+  [FAIL] E2    零分布 B 第 51 次直接采用的成员总数          期望 0        实得 142
+  [FAIL] E3      其中偏离超过 ±35% 的成员总数                 期望 0        实得 118
+  [PASS] E4    零分布 B 极端兜底（随机 k 个）成员总数     期望 0        实得 0
+  [PASS] F1    QC 用 1000 个模块与用前 200 个判定不同的组合数 期望 0        实得 0
+  [PASS] G1    B 类：sample_null_weighted 与 sample_null_A 基因集不同的组合数 期望 0        实得 0
+  [PASS] G2    B 类：sample_null_weighted 的权重与打分权重不同的组合数 期望 0        实得 0
+
+零分布 B 放宽情况（有放宽的组合）：
+    cohort  sig_id  class     k B_mean_tries B_n_relaxed B_relaxed_out20
+    <char>  <char> <char> <int>        <num>       <int>           <int>
+  GSE30219 SIG-004      B     7       10.534          11              10
+  GSE30219 SIG-012      A    11        8.210           2               2
+  GSE31210 SIG-002      B     8        7.424           2               1
+  GSE31210 SIG-004      B     7        7.046           1               1
+  GSE31210 SIG-009      A    27        5.312           1               1
+  GSE50081 SIG-002      B     8       12.089          11              11
+  GSE50081 SIG-004      B     7        9.719           3               2
+  GSE50081 SIG-005      A    11        7.898           2               2
+  GSE50081 SIG-009      A    27        6.903           2               2
+  GSE50081 SIG-010      A    20        8.152           1               1
+  GSE50081 SIG-012      A    11       11.755          13              12
+  GSE68465 SIG-005      A    11        8.623           2               2
+  GSE72094 SIG-004      B     7        8.172           2               1
+ TCGA_LUAD SIG-004      B     7       12.406          12              11
+ TCGA_LUAD SIG-005      A    11       10.921           5               4
+ TCGA_LUAD SIG-006      B     7        6.983           1               1
+ TCGA_LUAD SIG-008      B     5        9.172           1               0
+ TCGA_LUAD SIG-009      A    27        9.089           3               3
+ TCGA_LUAD SIG-010      A    19        8.704           3               3
+ TCGA_LUAD SIG-012      A    10       17.421          64              60
+    cohort  sig_id  class     k B_mean_tries B_n_relaxed B_relaxed_out20
+    <char>  <char> <char> <int>        <num>       <int>           <int>
+ B_relaxed_out35 B_max_dev_mean B_max_dev_var
+           <int>          <num>         <num>
+               8          0.400         3.431
+               2          0.200         0.644
+               1          0.199         0.714
+               1          0.361         0.197
+               1          0.200         0.642
+               8          0.393         0.815
+               2          0.200         0.893
+               1          0.306         0.736
+               1          0.197         0.826
+               1          0.198         0.798
+              11          0.255         0.838
+               2          0.351         0.409
+               1          0.360         0.197
+              11          2.329         1.464
+               4          0.612         0.645
+               1          0.652         0.199
+               0          0.196         0.198
+               3          0.479         0.871
+               2          0.198         1.041
+              57          1.317         0.888
+ B_relaxed_out35 B_max_dev_mean B_max_dev_var
+           <int>          <num>         <num>
+
+QC 判定 200 vs 1000 不同的组合：
+Empty data.table (0 rows and 7 cols): cohort,sig_id,class,ratio200,ratio1000,qc200...
+
+零分布 A 有退让的组合：
+Empty data.table (0 rows and 6 cols): cohort,sig_id,class,k,A_fb_neighbor,A_fb_wholepool
+
+闸门（H1、R1–R7）：8 / 8 PASS
+写出：
+  /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/verify_nullengine_combo_20261025.csv
+  /home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/verify_nullengine_members_20261025.csv
+
+R version 4.3.1 (2023-06-16)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: Ubuntu 20.04.6 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.9.0 
+LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.9.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Asia/Shanghai
+tzcode source: system (glibc)
+
+attached base packages:
+[1] parallel  stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+[1] GSVA_1.48.3         survival_3.5-7      data.table_1.18.2.1
+
+loaded via a namespace (and not attached):
+ [1] bitops_1.0-9                RSQLite_2.3.1              
+ [3] lattice_0.21-8              sparseMatrixStats_1.12.2   
+ [5] grid_4.3.1                  fastmap_1.2.0              
+ [7] blob_1.3.0                  Matrix_1.6-1               
+ [9] GSEABase_1.62.0             AnnotationDbi_1.62.2       
+[11] graph_1.78.0                GenomeInfoDb_1.36.4        
+[13] DBI_1.3.0                   httr_1.4.7                 
+[15] SingleCellExperiment_1.22.0 HDF5Array_1.28.1           
+[17] XML_3.99-0.23               Biostrings_2.68.1          
+[19] codetools_0.2-19            abind_1.4-8                
+[21] cli_3.6.5                   rlang_1.1.7                
+[23] crayon_1.5.3                XVector_0.40.0             
+[25] Biobase_2.60.0              bit64_4.6.0-1              
+[27] splines_4.3.1               cachem_1.1.0               
+[29] DelayedArray_0.26.7         otel_0.2.0                 
+[31] S4Arrays_1.0.6              beachmat_2.16.0            
+[33] tools_4.3.1                 BiocParallel_1.34.2        
+[35] memoise_2.0.1               annotate_1.78.0            
+[37] Rhdf5lib_1.22.1             GenomeInfoDbData_1.2.10    
+[39] SummarizedExperiment_1.30.2 BiocGenerics_0.46.0        
+[41] rsvd_1.0.5                  vctrs_0.7.2                
+[43] R6_2.6.1                    png_0.1-9                  
+[45] rhdf5_2.44.0                matrixStats_1.5.0          
+[47] stats4_4.3.1                zlibbioc_1.46.0            
+[49] KEGGREST_1.40.0             BiocSingular_1.16.0        
+[51] S4Vectors_0.38.2            IRanges_2.34.1             
+[53] bit_4.6.0                   irlba_2.3.7                
+[55] ScaledMatrix_1.8.1          Rcpp_1.1.1                 
+[57] GenomicRanges_1.52.0        rhdf5filters_1.12.1        
+[59] MatrixGenerics_1.12.3       xtable_1.8-8               
+[61] DelayedMatrixStats_1.22.6   compiler_4.3.1             
+[63] RCurl_1.98-1.18            

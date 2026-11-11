@@ -1,0 +1,8 @@
+sig_id,class,train_cohort,z_train,z_ext_median,z_ext_max,n_ext,ratio
+SIG-001,B,TCGA,4.99,3.71,4.01,5,1.35
+SIG-004,B,TCGA,6.75,2.53,2.86,4,2.67
+SIG-006,B,TCGA,4.5,2.43,4.06,5,1.85
+SIG-007,B,TCGA,8.04,2.54,3.7,5,3.17
+SIG-008,B,GSE41271,,3.26,3.95,6,
+SIG-011,B,TCGA,7.27,2.38,2.93,5,3.06
+SIG-012,A,TCGA,-3.4,-2.69,-4.17,5,1.26

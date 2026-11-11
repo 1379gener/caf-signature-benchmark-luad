@@ -1,0 +1,98 @@
+
+======================================================================
+1. meta-PCNA 基因集
+======================================================================
+文件 /home/kevin/thesis_LUAD_CAF/03_signature_registry/confounders/metaPCNA_genes.txt
+md5 82bd28e2ee6ca138639ad6bb15390f2c
+条目 131；去重后 131
+
+provenance：
+meta-PCNA gene set
+
+Source: Venet D, Dumont JE, Detours V. Most Random Gene Expression Signatures
+        Are Significantly Associated with Breast Cancer Outcome.
+        PLoS Comput Biol. 2011;7(10):e1002240. Table S1.
+        doi:10.1371/journal.pcbi.1002240
+Source PDF md5: f3e1db9f7afc6ecbb5cc404c906e61e2
+Extracted:      2026-09-08 01:36
+
+Original definition (paper Methods):
+  Pearson correlation between PCNA and all genes in Ge et al. 2005 (GDS1096,
+  36 normal tissue samples spanning 27 organs); top 1% most positively
+  correlated retained, i.e. 131 of 13,077 genes.
+  meta-PCNA index = MEDIAN expression of these genes (not mean, not ssGSEA).
+
+  Defined on NORMAL tissue, therefore adjusting tumour data for it
+  does not introduce circularity.
+
+Genes parsed:      131
+Renamed to current HGNC: 14
+Retired Entrez IDs:      0
+Final unique symbols:    131
+
+NOTE ON ADJUSTMENT METHOD:
+  Venet et al. adjusted the expression matrix gene-by-gene (lm on the
+  meta-PCNA index, replacing each value by residual + cohort mean) and
+  then re-scored the signature.
+  This study follows SAP 7.1 instead: the proliferation index enters the
+  Cox model as a covariate (model M3). The SAP approach is more
+  conservative; attenuation reported here is therefore not directly
+  comparable to the near-complete abrogation reported by Venet et al.
+
+======================================================================
+2. 与 12 个被测签名的基因重叠（SAP §7.2 第 5 条：>30% 标注结构性重叠）
+======================================================================
+  sig_id n_sig n_overlap  frac structural_overlap  genes
+  <char> <int>     <int> <num>             <lgcl> <char>
+ SIG-001     4         1 0.250              FALSE  CCNB1
+ SIG-002     8         0 0.000              FALSE       
+ SIG-003   141         0 0.000              FALSE       
+ SIG-004     7         0 0.000              FALSE       
+ SIG-005    11         0 0.000              FALSE       
+ SIG-006     8         1 0.125              FALSE  CCNB1
+ SIG-007     8         0 0.000              FALSE       
+ SIG-008     5         0 0.000              FALSE       
+ SIG-009    27         0 0.000              FALSE       
+ SIG-010    20         0 0.000              FALSE       
+ SIG-011     8         0 0.000              FALSE       
+ SIG-012    11         0 0.000              FALSE       
+
+======================================================================
+3. 逐队列计算
+======================================================================
+CPTAC_LUAD ：无生存数据，不进入 M3/M4，跳过
+    cohort     n n_exact n_alias n_used coverage rho_MKI67 rho_TOP2A
+    <char> <int>   <int>   <int>  <int>    <num>     <num>     <num>
+ TCGA_LUAD   443     131       0    131    1.000     0.847     0.920
+  GSE68465   442     131       0    131    1.000     0.770     0.885
+  GSE72094   398     127       3    130    0.992     0.853     0.905
+  GSE31210   204     131       0    131    1.000     0.911     0.948
+  GSE50081   127     131       0    131    1.000     0.865     0.802
+  GSE30219    83     131       0    131    1.000     0.929     0.961
+ prolif_median prolif_iqr
+         <num>      <num>
+         3.847      1.078
+         8.531      0.863
+         8.109      0.918
+         8.752      0.714
+         6.773      1.076
+         7.293      1.190
+
+缺失基因与别名映射：
+  TCGA_LUAD  缺: 无
+             别名: 无
+  GSE68465   缺: 无
+             别名: 无
+  GSE72094   缺: H3-3A
+             别名: CENPU->MLF1IP;NSD2->WHSC1;PCLAF->KIAA0101
+  GSE31210   缺: 无
+             别名: 无
+  GSE50081   缺: 无
+             别名: 无
+  GSE30219   缺: 无
+             别名: 无
+
+======================================================================
+4. 写出
+======================================================================
+写出：/home/kevin/thesis_LUAD_CAF/02_chapters/ch04_benchmark/data_derived/m3_prolif_metaPCNA_20261017.csv（及 _coverage / _sig_overlap）

@@ -1,0 +1,20 @@
+status,id,name,class,n_genes,source,doi,train_cohort,overlap_cohorts,note
+included,SIG-001,Ren 2023 CAF 4-gene model,B,4,Front Immunol 2023;14:1201573,10.3389/fimmu.2023.1201573,TCGA,TCGA,
+included,SIG-002,MCP-counter Fibroblasts,B,8,MCPcounter GitHub master Signatures/genes.txt,-,"",-,
+included,SIG-003,ESTIMATE StromalSignature,A,141,estimate 1.0.13 extdata/SI_geneset.gmt,-,"",-,
+included,SIG-004,Zhang Y & Cheng 2023 CAFRS,B,7,Aging (Albany NY) 2023;15(11):4986-5006,10.18632/aging.204774,TCGA,"TCGA, GSE41271",
+included,SIG-005,Navab 2011 CAF prognostic signature,A,11,PNAS 2011;108(17):7160-7165,10.1073/pnas.1014506108,"",-,
+included,SIG-006,Si 2024 CAF 8-gene model,B,8,Sci Rep 2024;14:23243,10.1038/s41598-024-74336-1,TCGA,"TCGA, GSE31210, GSE37745, GSE50081, GSE68465, GSE3141",
+included,SIG-007,"Wang(LDDD) 2026 CAF 8-gene model [first author Li W; corrected 2026-10-25, see Table S1]",B,8,Lett Drug Des Discov 2026 (PII S1570180826000631),10.1016/j.lddd.2026.100333,TCGA,"TCGA, GSE30219",
+included,SIG-008,Wang S 2023 CAF 5-gene model,B,5,Cancer Immunol Immunother 2023;72:2423-2442,10.1007/s00262-023-03428-0,GSE41271,"TCGA, GSE41271, GSE37745, GSE42127",
+included,SIG-009,Ruhle 2023 CAF MARKER,A,27,OncoImmunology 2023;12(1):2274130 Table S1,10.1080/2162402X.2023.2274130,"",TCGA,
+included,SIG-010,Ruhle 2023 CAF (EPIC),A,20,OncoImmunology 2023;12(1):2274130 Table S1,10.1080/2162402X.2023.2274130,"",TCGA,
+included,SIG-011,Zhang H 2023 CAF 8-gene model,B,8,Aging (Albany NY) 2023;15(14):6774-6797,10.18632/aging.204838,TCGA,"TCGA, GSE31210, GSE37745, GSE50081, GSE72094",
+included,SIG-012,Huang 2023 CAF 11-gene model,A,11,J Thorac Dis 2023;15(3):1406-1425,10.21037/jtd-23-238,TCGA,"TCGA, GSE30219, GSE31210, GSE72094",
+included (added per analysis plan; developed by the authors),SCANI_myCAF,SCANI myCAF component,A,50,manuscript submitted,,TCGA (stage II-IV),"TCGA, GSE72094",
+excluded: E1,,Cords 2024,,,Cancer Cell 2024;42(3):396-412,,,,成像质谱流式蛋白分型，无可提取的转录组基因列表
+excluded: I1,,EPIC CAF (包内),,,EPIC 1.1.7 (TRef$sigGenes),,,,sigGenes(98) 为七种细胞类型共用；按 refProfiles 拆出 CAF 专属(20)需自定规则，非已发表列表。注：Ruhle 2023 已发表其拆分结果，见 SIG-010
+excluded: I1,,xCell Fibroblasts,,,xCell 1.1.0 (xCell.data$signatures),,,,九套特征集(ENCODE/FANTOM/HPCA 各 3)，九套交集为 0，基因数 17-136；任何合并规则均为本研究自定
+excluded: E2,,Kong 2024,,,Mol Genet Genomics 2024;299:70,,,,"仅 2 个基因(COL5A2, COL6A2)，基因数 < 3"
+excluded: E1,,Chen 2025,,,Int J Med Sci 2025;22(12):2956-2972,,,,28 基因模型，完整名单未公开。正文仅可视化 top5/top10；补充材料含 4 图 2 表，无基因列表；已发邮件索取，待回复
+excluded: E1,,Peng 2023,,,Technol Health Care 2023;31(6):2339-2354,,,,11 基因 CAF signature，全文不可获取（IOS Press 订阅墙）；摘要与 PubMed 记录未列基因名单，无法提取

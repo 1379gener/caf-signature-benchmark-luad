@@ -1,0 +1,29 @@
+README                       identical
+S1_deviation_log             CHANGED (rows 33 -> 34)
+S2_registry                  CHANGED (rows 21 -> 21)
+S3_classB_nullB              identical
+S4_all_combinations          identical
+S5_confounding               identical
+S6_fibroblast_proliferation  identical
+S7_SIG012_published_coef     identical
+S8a_null_summary_by_cohort   identical
+S8b_alternative_FDR          identical
+S8c_proportional_hazards     identical
+Column_dictionary            identical
+       7                                                                                                           
+name   "Li (LDDD) 2025 CAF 8-gene model [registry label 'Wang(LDDD) 2026'; corrected, see Table S1 Nos. 21 and 34]"
+source "Lett Drug Des Discov 2025;22(12):100333 (PII S1570180826000631)"                                           
+doi    "10.1016/j.lddd.2026.100333"                                                                                
+       NA NA.1 NA.2 NA.3 NA.4 NA.5 NA.6 NA.7
+name   NA NA   NA   NA   NA   NA   NA   NA  
+source NA NA   NA   NA   NA   NA   NA   NA  
+doi    NA NA   NA   NA   NA   NA   NA   NA  
+                              34                                                                                                                                                                                  
+No.                           "34"                                                                                                                                                                                
+Date.recorded                 "2026-11-11"                                                                                                                                                                        
+Plan.section./.item           "SIG-007 registry record"                                                                                                                                                           
+Description                   "Registry and Table S2 gave the publication year as 2026, taken from the DOI and PII. The published version is Vol. 22, Issue 12, December 2025, article 100333 (publisher's page)."
+Found.before.or.after.results "After"                                                                                                                                                                             
+Action                        "Locked registry not edited; Table S2 name and source corrected to 2025; DOI unchanged."                                                                                            
+Effect.on.reported.results    "None."                                                                                                                                                                             
+md5 4cfcd34af2e23b07bc2cb263627d7d6f 

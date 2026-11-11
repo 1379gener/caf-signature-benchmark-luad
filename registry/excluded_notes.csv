@@ -1,0 +1,7 @@
+"name","source","criterion","reason"
+"Cords 2024","Cancer Cell 2024;42(3):396-412","E1","成像质谱流式蛋白分型，无可提取的转录组基因列表"
+"EPIC CAF (包内)","EPIC 1.1.7 (TRef$sigGenes)","I1","sigGenes(98) 为七种细胞类型共用；按 refProfiles 拆出 CAF 专属(20)需自定规则，非已发表列表。注：Ruhle 2023 已发表其拆分结果，见 SIG-010"
+"xCell Fibroblasts","xCell 1.1.0 (xCell.data$signatures)","I1","九套特征集(ENCODE/FANTOM/HPCA 各 3)，九套交集为 0，基因数 17-136；任何合并规则均为本研究自定"
+"Kong 2024","Mol Genet Genomics 2024;299:70","E2","仅 2 个基因(COL5A2, COL6A2)，基因数 < 3"
+"Chen 2025","Int J Med Sci 2025;22(12):2956-2972","E1","28 基因模型，完整名单未公开。正文仅可视化 top5/top10；补充材料含 4 图 2 表，无基因列表；已发邮件索取，待回复"
+"Peng 2023","Technol Health Care 2023;31(6):2339-2354","E1","11 基因 CAF signature，全文不可获取（IOS Press 订阅墙）；摘要与 PubMed 记录未列基因名单，无法提取"
