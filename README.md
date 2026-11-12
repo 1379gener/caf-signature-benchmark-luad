@@ -12,7 +12,7 @@ Code and results for: *Prognostic specificity of cancer-associated fibroblast si
 | `registry/` | Locked signature registry (`signature_registry_locked_20260903.csv`, MD5 `4ad3218931d95dfb6ee67a7ba07b9a75`), gene lists and published weights, symbol mapping, meta-PCNA genes, registry scripts. Source PDFs are not included (copyright). |
 | `scani_genes/` | SCANI myCAF gene list (`S1_Table_myCAF_signature_50genes.csv`, from https://github.com/1379gener/scani-luad, tag v9.1) and the R object read by the scripts (`CAF_subtype_signatures.rds`) |
 | `scripts/` | Benchmark (`run_benchmark.R`, `null_engine.R`), confounding models, readouts, figures, supplementary tables, verification |
-| `results/` | All result files. Current supplementary tables: `supp_tables_20261112/` (S1–S9). Earlier dated files are kept because the deviation log refers to them. |
+| `results/` | All result files. Current supplementary tables: `supp_tables_20261112b/` (S1–S9, including S8g). Earlier dated files are kept because the deviation log refers to them. |
 | `figures/` | Figures as submitted |
 | `logs/` | Run logs |
 | `docs/` | Working deviation log `DEVIATIONS.md` (mostly Chinese; the English version is Table S1) and the Methods-to-code correspondence table |

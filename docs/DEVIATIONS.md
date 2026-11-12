@@ -307,3 +307,8 @@ SCANI 补跑完成（scani_supp_summary_20261025.csv；6 队列均可评估）�
 - 内容：由 11-11 三项事后分析的输出（posctrl_20261111、mc_redraw_20261111、gse68465_site_20261111）生成 S8d（阳性对照）、S8e（蒙特卡洛加抽）、S8f（GSE68465 按中心分层，含按主分析 BH 族重算的 q）；新增 S9 参数表（取自 null_engine.R 常量、包版本、TCGA SE 元信息与各脚本设置）；S1 增加 Nos. 35–37。
 - 脚本 scripts/sci2_supp_S8def_S9_20261112.R；输入 supp_tables_20261111（不覆盖）；输出 data_derived/supp_tables_20261112/SCI-2_Supplementary_Tables_S1-S9_EN.xlsx。
 - 观察（运行前已由日志得知）：阳性对照零分布 A 4/6、零分布 B 0/6；蒙特卡洛加抽后 FDR 判定无变化；GSE68465 分层后 p_emp_A < 0.05 由 2 个变为 1 个。
+
+## 2026-11-12 · 外部队列合并检验（事后；运行之前登记）
+- 起因：模拟审稿意见 M3——单个外部队列检验力不足（最小可检测 HR 1.2–1.9），"完全独立队列 1/28 通过"不足以判断特异性。
+- 方法：对每个签名，把开发队列以外的队列（另做一组：仅完全独立队列）的 z 用加权 Stouffer 合并，权重为 sqrt(死亡数)；零分布 A 的 1,000 个成员按序号跨队列配对、同样合并，得到合并零分布；p_emp 双侧，公式同主分析；BH 在类别内（A、B 分别）。队列角色取自 2026-10-25 队列角色分析的输出；SCANI 的角色按 Methods（TCGA 开发、GSE72094 验证）。
+- 只读主分析 rds；不改变任何主分析判定。脚本 scripts/sci2_pooled_external_20261112.R；输出 data_derived/pooled_external_20261112/，补充表 data_derived/supp_tables_20261112b/（新增 S8g，S1 No. 38）。

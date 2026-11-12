@@ -1,4 +1,4 @@
-d303d51cc51f743650d214e99a587a73  ./docs/DEVIATIONS.md
+c920e05b84566e3566c34ab63ec40c04  ./docs/DEVIATIONS.md
 7b0fb497ed1ab2bfa6572cc67b6f2a4c  ./docs/SCI-2_Methods代码对照表.md
 6d9c6062614a542198509a8256c4d353  ./environment/sessionInfo.txt
 99e03b178e865a0c27dfc4aa17bb2f6c  ./figures/Fig1_signal_heatmap_v3_20261110.pdf
@@ -50,6 +50,7 @@ e516cf76abedc25d7c81f8671d2671ca  ./logs/make_figures_stage23_v3_20261110.log
 9c1f73cdc7cc0b0c18d3901eda1c7424  ./logs/make_figures_v3_20261110.log
 a0d77b7cb8b7e1f9137f053cb09bb252  ./logs/mc_redraw_20261111.log
 f207df1c8b5296915b81996fad2f4d54  ./logs/ph_check_20261110.log
+7c7dcbeaeca8100a9dbca6dfbfc5cc1d  ./logs/pooled_external_20261112.log
 d0d6f0e54fc44ef654b9109adc252d20  ./logs/posctrl_20261111.log
 0d54a45bc609f8b3c0c25b6c3d07581a  ./logs/prolif_index_20261017_0418.log
 0d54a45bc609f8b3c0c25b6c3d07581a  ./logs/prolif_index_20261017_0420.log
@@ -60,6 +61,7 @@ bfa64bb91df50e22516ed4bd17a67189  ./logs/review_summaries_20261109.log
 0c37aa16312972af5990dbdac106cb2e  ./logs/run_all_20261111.status
 3d1e24129489e963e1ef666a48d73013  ./logs/run_gse68465_site_20261111.out
 8411b2796f76e69787c0f3bf6f0eb1bc  ./logs/run_mc_redraw_20261111.out
+7c7dcbeaeca8100a9dbca6dfbfc5cc1d  ./logs/run_pooled_external_20261112.out
 7d035e7b77c17ca277326cafb8b938a4  ./logs/run_posctrl_20261111.out
 11f09840387bbb1e105561f2b889fe08  ./logs/run_supp_S8def_S9_20261112.out
 8069ad34defc740271ecaf77aa9283a3  ./logs/scani_supp_20261025_1836.log
@@ -92,7 +94,7 @@ fe1d02fb6d15869c908fd696d60d3e7d  ./preprocessing/A_bulk_OS/fix_gse31210_exclude
 61944007c6da5b857ecae6d2ea0573fa  ./preprocessing/A_bulk_OS/patch_alias_fallback.R
 475309c59577f1e473bb977430057e37  ./preprocessing/A_bulk_OS/scoring_protocol.R
 9eb48087296be5bec5a8879fd59e7a3e  ./preprocessing/tcga_download/step5_tcga_download.R
-8ec048991f03d122f7930fad0b6354df  ./README.md
+267196919c88518e17c64bf52303e98d  ./README.md
 4c36f3dd3e983893e73d9b2018faf18f  ./registry/alias_fallback_map_20260903.csv
 df839bb749c2f5657c2353bde63cd662  ./registry/alias_rescue_report_20260903.csv
 82bd28e2ee6ca138639ad6bb15390f2c  ./registry/confounders/metaPCNA_genes.txt
@@ -237,6 +239,8 @@ e103995ac2bdaaa665f2d2129b5ba442  ./results/nullB_relax_bound_20261025.csv
 22dca9e7a9f1ce789d2cea43707a23d4  ./results/overfit_gradient_20261016.csv
 488a5390840d97c1331d79f702c8d698  ./results/overfit_gradient_20261025.csv
 9136c34b9e5632f100d0169e1b2f0e52  ./results/ph_check_20261110/ph_results.csv
+bb8e8739436b9abb0d84e980c9ef7c1d  ./results/pooled_external_20261112/pooled_external_20261112.csv
+89a288fd7d1fb7ae4216fd74ace5ddfb  ./results/pooled_external_20261112/pooled_inputs_roles_20261112.csv
 f9d396ffb63bccf79c171bada1d6702e  ./results/posctrl_20261111/posctrl_metaPCNA_20261111.csv
 4a27f1bea5f99754df51fae26d63bfcb  ./results/posthoc_checks_20261025.csv
 1d03d0625450f90a94d71a67b9563a54  ./results/results_by_cohort_role_20260905.csv
@@ -297,6 +301,7 @@ e4b9647283a4af0f8cba5767fd547de7  ./results/supp_tables_20261110b/SCI-2_Suppleme
 4a1f3969a21a6ded50fab98ad0444483  ./results/supp_tables_20261110c/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx
 95a9d868a4910b8e3d931bcf30fcc33a  ./results/supp_tables_20261110/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx
 4cfcd34af2e23b07bc2cb263627d7d6f  ./results/supp_tables_20261111/SCI-2_Supplementary_Tables_S1-S8_EN.xlsx
+378038d067debca1a20dc1c6de61ab69  ./results/supp_tables_20261112b/SCI-2_Supplementary_Tables_S1-S9_EN.xlsx
 05ba1b700862e082d82887dd21fd1edd  ./results/supp_tables_20261112/SCI-2_Supplementary_Tables_S1-S9_EN.xlsx
 d7fd48c7cb262eb2aaf656f24f1b00be  ./results/tables_20261025/Table1_cohorts.csv
 98448c91a918d7d0a3e120707ffbf104  ./results/tables_20261025/Table2_by_signature.csv
@@ -339,6 +344,7 @@ e431d1fa54f2fe682203af7c247520c1  ./scripts/sci2_m4_stage_tcga_sens.R
 ed31a48c6303b718d0b9f56ac2e289dc  ./scripts/sci2_merge_supp_en.R
 7e72361c931b8bb64b5d5ab87ae21504  ./scripts/sci2_nullB_relax_bound.R
 36d5e1bf8114710e0d94e37198c54e11  ./scripts/sci2_ph_check_20261110.R
+a2eaddbedeb7ede0b96ef5fdfa1f4429  ./scripts/sci2_pooled_external_20261112.R
 0a0b593eb67bec0f739fb23d02b6648f  ./scripts/sci2_posctrl_20261111.R
 352562c358deb6d524c1b2fa28d58718  ./scripts/sci2_prolif_index.R
 57c7e2d2828d3c03b10d09b1ceb2db8c  ./scripts/sci2_purity_tcga.R

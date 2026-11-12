@@ -1,0 +1,73 @@
+run: 2026-11-12 17:29:11 
+角色文件候选：
+[1] "data_derived/results_by_cohort_role_20261025.csv"
+[2] "data_derived/results_by_cohort_role_20261016.csv"
+[3] "data_derived/results_by_cohort_role_20260905.csv"
+使用： data_derived/results_by_cohort_role_20261025.csv 
+           role       role3     N
+         <char>      <char> <int>
+1: 完全独立队列 independent    52
+2:     开发队列 development     6
+3: 原文验证队列  validation    13
+4:  development development     1
+5:  independent independent     4
+6:   validation  validation     1
+Key: <class>
+    class development independent validation
+   <char>       <int>       <int>      <int>
+1:      A           2          28          6
+2:      B           5          28          8
+     cohort_set  class      sig_id n_cohorts deaths     z   p95     p     q
+         <char> <char>      <char>     <int>  <num> <num> <num> <num> <num>
+ 1:    external      A SCANI_myCAF         5    473  3.41  4.11 0.191 0.379
+ 2:    external      A     SIG-003         6    655 -0.45  3.82 0.938 0.938
+ 3:    external      A     SIG-005         6    655 -2.60  3.57 0.147 0.379
+ 4:    external      A     SIG-009         6    655  2.50  3.83 0.253 0.379
+ 5:    external      A     SIG-010         6    655 -1.61  3.95 0.545 0.655
+ 6:    external      A     SIG-012         5    473 -6.24  4.24 0.001 0.006
+ 7:    external      B     SIG-001         5    473  7.38  3.74 0.001 0.002
+ 8:    external      B     SIG-002         6    655  2.65  3.29 0.135 0.135
+ 9:    external      B     SIG-004         4    237  5.10  3.32 0.002 0.003
+10:    external      B     SIG-006         5    473  5.46  2.99 0.001 0.002
+11:    external      B     SIG-007         5    473  5.74  3.17 0.001 0.002
+12:    external      B     SIG-008         6    655  7.62  3.40 0.001 0.002
+13:    external      B     SIG-011         5    473  4.25  3.31 0.012 0.014
+14: independent      A SCANI_myCAF         4    360  2.36  3.35 0.247 0.466
+15: independent      A     SIG-003         6    655 -0.45  3.82 0.938 0.938
+16: independent      A     SIG-005         6    655 -2.60  3.57 0.147 0.441
+17: independent      A     SIG-009         5    473  2.22  3.89 0.311 0.466
+18: independent      A     SIG-010         5    473 -1.71  3.65 0.429 0.514
+19: independent      A     SIG-012         2    287 -3.55  3.24 0.035 0.210
+20: independent      B     SIG-001         5    473  7.38  3.74 0.001 0.002
+21: independent      B     SIG-002         6    655  2.65  3.29 0.135 0.157
+22: independent      B     SIG-004         4    237  5.10  3.32 0.002 0.003
+23: independent      B     SIG-006         2    156  4.63  3.67 0.008 0.011
+24: independent      B     SIG-007         4    430  4.85  3.26 0.001 0.002
+25: independent      B     SIG-008         5    473  6.57  3.65 0.001 0.002
+26: independent      B     SIG-011         2    279  1.92  2.98 0.211 0.211
+     cohort_set  class      sig_id n_cohorts deaths     z   p95     p     q
+         <char> <char>      <char>     <int>  <num> <num> <num> <num> <num>
+external, class A: 6 signatures; |z_pooled| >= 1.96: 4; p_emp < 0.05: 1; q < 0.05: 1 (SIG-012)
+external, class B: 7 signatures; |z_pooled| >= 1.96: 7; p_emp < 0.05: 6; q < 0.05: 6 (SIG-001, SIG-004, SIG-006, SIG-007, SIG-008, SIG-011)
+independent, class A: 6 signatures; |z_pooled| >= 1.96: 4; p_emp < 0.05: 1; q < 0.05: 0 ()
+independent, class B: 7 signatures; |z_pooled| >= 1.96: 6; p_emp < 0.05: 5; q < 0.05: 5 (SIG-001, SIG-004, SIG-006, SIG-007, SIG-008)
+README                       identical
+S1_deviation_log             CHANGED (rows 37 -> 38)
+S2_registry                  identical
+S3_classB_nullB              identical
+S4_all_combinations          identical
+S5_confounding               identical
+S6_fibroblast_proliferation  identical
+S7_SIG012_published_coef     identical
+S8a_null_summary_by_cohort   identical
+S8b_alternative_FDR          identical
+S8c_proportional_hazards     identical
+Column_dictionary            identical
+S8d_positive_control         identical
+S8e_monte_carlo              identical
+S8f_GSE68465_site            identical
+S9_parameters                identical
+S8g_pooled_external NEW 26 rows; CJK: FALSE
+S1 No. 38 effect: External cohorts: 7 of 13 signatures exceeded the pooled null after false-discovery-rate control within class; fully independent cohorts: 5 of 13 (Table S8g). 
+md5 378038d067debca1a20dc1c6de61ab69 
+done: 2026-11-12 17:29:12 
