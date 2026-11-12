@@ -1,0 +1,154 @@
+run: 2026-11-11 23:18:50 
+    class     N
+   <char> <int>
+1:      B    41
+2:      A    36
+边界组合数： 16 
+       cohort  sig_id  class   null     p_1000
+       <char>  <char> <char> <char>      <num>
+ 1:  GSE30219 SIG-001      B      A 0.08591409
+ 2:  GSE30219 SIG-004      B      A 0.04895105
+ 3:  GSE30219 SIG-012      A      A 0.06893107
+ 4:  GSE31210 SIG-001      B      A 0.02097902
+ 5:  GSE31210 SIG-006      B      A 0.09990010
+ 6:  GSE50081 SIG-001      B      A 0.06393606
+ 7:  GSE50081 SIG-004      B      A 0.07592408
+ 8:  GSE50081 SIG-011      B      A 0.05494505
+ 9:  GSE68465 SIG-006      B      A 0.06293706
+10:  GSE68465 SIG-012      A      A 0.09690310
+11:  GSE72094 SIG-001      B      A 0.06193806
+12:  GSE72094 SIG-006      B      A 0.04295704
+13:  GSE72094 SIG-007      B      A 0.07892108
+14:  GSE72094 SIG-012      A      A 0.04695305
+15: TCGA_LUAD SIG-008      B      A 0.02897103
+16: TCGA_LUAD SIG-012      A      A 0.03396603
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE30219 SIG-001      B      A 0.08591409 0.07549245    10000 0.002641843
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276595       NA     0.6
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE30219 SIG-004      B      A 0.04895105 0.07009299    10000 0.002553037
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276643       NA     0.6
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE30219 SIG-012      A      A 0.06893107 0.07179282    10000 0.002581446
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276626       NA       7
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE31210 SIG-001      B      A 0.02097902 0.01349865    10000 0.001153969
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276528       NA     0.6
+     cohort  sig_id  class   null    p_1000   p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>     <num>     <num>    <int>       <num>
+1: GSE31210 SIG-006      B      A 0.0999001 0.1029897    10000 0.003039454
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276608       NA     0.7
+     cohort  sig_id  class   null     p_1000   p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>     <num>    <int>       <num>
+1: GSE50081 SIG-001      B      A 0.06393606 0.0529947    10000 0.002240229
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276576       NA     0.6
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE50081 SIG-004      B      A 0.07592408 0.09019098    10000 0.002864552
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276624       NA     0.6
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE50081 SIG-011      B      A 0.05494505 0.05689431    10000 0.002316406
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276591       NA     0.6
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE68465 SIG-006      B      A 0.06293706 0.05249475    10000 0.002230225
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276742       NA     0.8
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class   null    p_1000   p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>     <num>     <num>    <int>       <num>
+1: GSE68465 SIG-012      A      A 0.0969031 0.1166883    10000 0.003210485
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276693       NA    14.6
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE72094 SIG-001      B      A 0.06193806 0.05829417    10000 0.002342989
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276625       NA     0.8
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE72094 SIG-006      B      A 0.04295704 0.03879612    10000 0.001931087
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276705       NA     0.8
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE72094 SIG-007      B      A 0.07892108 0.07779222    10000 0.002678443
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276721       NA     0.8
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+     <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: GSE72094 SIG-012      A      A 0.04695305 0.04589541    10000 0.002092583
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20276656       NA    32.8
+      cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+      <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: TCGA_LUAD SIG-008      B      A 0.02897103 0.03379662    10000 0.001807053
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20279010       NA     0.8
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+      cohort  sig_id  class   null     p_1000    p_10000 n_finite    se_10000
+      <char>  <char> <char> <char>      <num>      <num>    <int>       <num>
+1: TCGA_LUAD SIG-012      A      A 0.03396603 0.04169583    10000 0.001998932
+   seed_10000 qc_10000 minutes
+        <int>   <lgcl>   <num>
+1:   20278924       NA    28.4
+Warning messages:
+1: In coxph.fit(X, Y, istrat, offset, init, control, weights = weights,  :
+  Loglik converged before variable  1 ; coefficient may be infinite. 
+2: In coxph.fit(X, Y, istrat, offset, init, control, weights = weights,  :
+  Loglik converged before variable  1 ; coefficient may be infinite. 
+3: In coxph.fit(X, Y, istrat, offset, init, control, weights = weights,  :
+  Loglik converged before variable  1 ; coefficient may be infinite. 
+4: In .filterFeatures(expr, method) :
+  451 genes with constant expression values throuhgout the samples.
+5: In .filterFeatures(expr, method) :
+  451 genes with constant expression values throuhgout the samples.
+
+主分析通过数（零分布 A）：1,000 次 A 类 1、B 类 8；替换后 A 类 1、B 类 8
+判定改变的组合：
+Key: <cohort, sig_id>
+Empty data.table (0 rows and 13 cols): cohort,sig_id,class,z_real,q_A_1000,q_B_1000...
+全部 77 个组合 p_emp_A 的蒙特卡洛标准误：中位 0.0109，最大 0.0158
+done: 2026-11-12 00:50:34 

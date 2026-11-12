@@ -1,0 +1,106 @@
+run: 2026-11-12 00:50:46 
+       event
+site      0   1
+  DFCI   47  35
+  HLM    19  60
+  MI     75 102
+  MSKCC  65  39
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-001      B  3.707506      0.01998002      3.64342
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:         0.01698302     3.132644 1.156896e-06    3.298557e-06            TRUE
+     cohort  sig_id  class  z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>      <num>           <num>        <num>
+1: GSE68465 SIG-002      B -0.4784602       0.7582418    0.5423988
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.6413586     2.507948    0.3295874       0.3657667            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class  z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>      <num>           <num>        <num>
+1: GSE68465 SIG-003      A -0.7987357       0.5314685   0.03645424
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:           0.982018     2.418955    0.4789456       0.4241279            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class  z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>      <num>           <num>        <num>
+1: GSE68465 SIG-005      A -0.9622198       0.5474525   -0.9686555
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.5424575     2.896617    0.7756564       0.6660384            TRUE
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-006      B  2.425238      0.06293706     2.143465
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:         0.06993007     2.266872  0.006119702      0.02608751            TRUE
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-007      B  2.538056       0.1038961     2.305745
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:         0.08091908     2.563599 0.0004128815    0.0007836517            TRUE
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-008      B  3.949737      0.01198801     2.949763
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:         0.06393606     3.060563 0.0004663374    0.0008304201            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class  z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>      <num>           <num>        <num>
+1: GSE68465 SIG-009      A 0.05890487        0.979021      0.39503
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.7952048     2.819722    0.5513036       0.6248065            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-010      A -1.616394       0.2707293    -1.003107
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.5174825     2.836775     0.300896       0.3691402            TRUE
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-011      B  1.073148       0.5064935     2.174999
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.1548452       2.8959  0.000382476    0.0007338552            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort  sig_id  class z_unstrat p_emp_A_unstrat z_site_strat
+     <char>  <char> <char>     <num>           <num>        <num>
+1: GSE68465 SIG-012      A -2.688488       0.0969031    -1.975111
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.2457542     2.981941    0.8046029       0.9810577            TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort      sig_id  class  z_unstrat p_emp_A_unstrat z_site_strat
+     <char>      <char> <char>      <num>           <num>        <num>
+1: GSE68465 SCANI_myCAF      A 0.03033539        0.977023    0.3828423
+   p_emp_A_site_strat zA_p95_strat ph_p_unstrat ph_p_site_strat null_reproduced
+                <num>        <num>        <num>           <num>          <lgcl>
+1:          0.7492507      2.31025     0.299344       0.3370157            TRUE
+
+|z| ≥ 1.96：未分层 5，分层 6；p_emp_A < 0.05：未分层 2，分层 1；PH p < 0.05：未分层 5，分层 5；零分布复现 12/12
+done: 2026-11-12 01:02:41 

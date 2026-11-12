@@ -294,3 +294,16 @@ SCANI 补跑完成（scani_supp_summary_20261025.csv；6 队列均可评估）�
 - Action: the locked registry is not edited. In Table S2, the SIG-007 `name` becomes "Li (LDDD) 2025 …" (keeping the original registry label in brackets) and `source` becomes "Lett Drug Des Discov 2025;22(12):100333". The DOI is unchanged. Add Table S1 No. 34.
 - Effect on results: none.
 - Script: scripts/sci2_supp_S2year_20261111.R; output data_derived/supp_tables_20261111/. Input 20261110c is not overwritten.
+
+## 2026-11-11 · 可重复性复核：阳性对照、蒙特卡洛加抽、GSE68465 按中心分层（事后；运行之前登记）
+- 起因：按计算生物学审稿标准自查（检验力与方法灵敏度、p_emp 的蒙特卡洛误差、GSE68465 多中心）。三项均为结果已知后的事后分析，不改变主分析的任何判定规则；结果另报于 Table S8，正文标 post hoc。
+- (1) 阳性对照：meta-PCNA 131 基因（03_signature_registry/confounders/metaPCNA_genes.txt）作为 A 类基因集，ssGSEA 计分，零分布 A、B 各 1,000 次，种子 make_seed(队列, "POS-METAPCNA", A/B)。脚本 scripts/sci2_posctrl_20261111.R；输出 data_derived/posctrl_20261111/。
+- (2) 蒙特卡洛误差：全部 77 个组合报告 p_emp 的二项标准误 sqrt(p(1−p)/1000)；0.02 < p_emp < 0.10 的组合（零分布 A 全部；零分布 B 仅 A 类且 QC 通过）用新种子 make_seed(队列, 签名, "A10k"/"B10k") 重抽 10,000 次，并在替换这些 p 后按主分析的 BH 族（队列 × 类别）重算判定。原 1,000 次结果不覆盖、不替换主分析。脚本 scripts/sci2_mc_redraw_20261111.R；输出 data_derived/mc_redraw_20261111/。
+- (3) GSE68465 按中心分层：中心取自 series matrix 的 !Sample_source_name_ch1（MI 178、MSKCC 104、DFCI 82、HLM 79；19 个 Stratagene 参考样本不在队列内）。真实分数及按原种子重建的零分布 A 的 1,000 个成员均以 coxph(Surv ~ score + strata(site)) 重算 z 与 p_emp，并做分层后的 cox.zph（KM 变换）。脚本 scripts/sci2_gse68465_site_20261111.R；输出 data_derived/gse68465_site_20261111/。
+- 共用设置：scripts/sci2_common_20261111.R（只读输入，核对锁定注册表 md5 与各队列样本数）。并行 4 个 worker，三个脚本依次运行。
+- 另记：原计划的 p_emp 校准检查（以零分布成员充当真实签名）不执行——p_emp 为秩统计量，在可交换性下 P(p_emp ≤ α) ≤ α 自动成立，该检查不提供新信息；改为在 Methods 中说明。
+
+## 2026-11-12 · 补充表 S8d–f、S9 与 S1 Nos. 35–37（整理；不做新分析；运行之前登记）
+- 内容：由 11-11 三项事后分析的输出（posctrl_20261111、mc_redraw_20261111、gse68465_site_20261111）生成 S8d（阳性对照）、S8e（蒙特卡洛加抽）、S8f（GSE68465 按中心分层，含按主分析 BH 族重算的 q）；新增 S9 参数表（取自 null_engine.R 常量、包版本、TCGA SE 元信息与各脚本设置）；S1 增加 Nos. 35–37。
+- 脚本 scripts/sci2_supp_S8def_S9_20261112.R；输入 supp_tables_20261111（不覆盖）；输出 data_derived/supp_tables_20261112/SCI-2_Supplementary_Tables_S1-S9_EN.xlsx。
+- 观察（运行前已由日志得知）：阳性对照零分布 A 4/6、零分布 B 0/6；蒙特卡洛加抽后 FDR 判定无变化；GSE68465 分层后 p_emp_A < 0.05 由 2 个变为 1 个。

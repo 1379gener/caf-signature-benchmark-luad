@@ -1,0 +1,59 @@
+run: 2026-11-11 22:49:51 
+meta-PCNA genes: 131 
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+      cohort n_used     z zA_p95     p_emp_A zB_p95   p_emp_B qc_pass
+      <char>  <int> <num>  <num>       <num>  <num>     <num>  <lgcl>
+1: TCGA_LUAD    127  3.71   2.85 0.007992008   3.99 0.1168831    TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort n_used     z zA_p95    p_emp_A zB_p95   p_emp_B qc_pass
+     <char>  <int> <num>  <num>      <num>  <num>     <num>  <lgcl>
+1: GSE68465    131  3.35    2.8 0.02197802   3.93 0.1588412    TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort n_used     z zA_p95   p_emp_A zB_p95   p_emp_B qc_pass
+     <char>  <int> <num>  <num>     <num>  <num>     <num>  <lgcl>
+1: GSE72094    127  3.35   4.02 0.1388611   4.71 0.2347652    TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort n_used     z zA_p95     p_emp_A zB_p95   p_emp_B qc_pass
+     <char>  <int> <num>  <num>       <num>  <num>     <num>  <lgcl>
+1: GSE31210    131  3.61    2.8 0.007992008   4.18 0.1488511    TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort n_used     z zA_p95    p_emp_A zB_p95    p_emp_B qc_pass
+     <char>  <int> <num>  <num>      <num>  <num>      <num>  <lgcl>
+1: GSE50081    131     3   3.29 0.09390609   3.13 0.06993007    TRUE
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+[1] "Calculating ranks..."
+[1] "Calculating absolute values from ranks..."
+     cohort n_used     z zA_p95    p_emp_A zB_p95   p_emp_B qc_pass
+     <char>  <int> <num>  <num>      <num>  <num>     <num>  <lgcl>
+1: GSE30219    131  3.03   2.37 0.01098901   3.48 0.1788212    TRUE
+
+通过零分布 A（p_emp < 0.05）：4 / 6；零分布 B（QC 通过且 p_emp < 0.05）：0 / 6
+done: 2026-11-11 23:18:38 

@@ -1,0 +1,35 @@
+run: 2026-11-12 08:59:32 
+主分析通过（q_A < 0.05）：
+      cohort      sig_id  class     p_emp_A   q_A
+      <char>      <char> <char>       <num> <num>
+1:  GSE30219     SIG-007      B 0.010989011 0.038
+2:  GSE30219     SIG-008      B 0.006993007 0.038
+3: TCGA_LUAD     SIG-001      B 0.004995005 0.007
+4: TCGA_LUAD     SIG-004      B 0.000999001 0.002
+5: TCGA_LUAD     SIG-006      B 0.004995005 0.007
+6: TCGA_LUAD     SIG-007      B 0.000999001 0.002
+7: TCGA_LUAD     SIG-008      B 0.028971029 0.034
+8: TCGA_LUAD     SIG-011      B 0.000999001 0.002
+9:  GSE31210 SCANI_myCAF      A 0.001998002 0.012
+GSE68465 通过数（FDR）：未分层 0，按中心分层 0
+阳性对照：z 3.00–3.71；零分布 A 通过 4/6（p_emp < 0.05；q < 0.05 为 4/6）；零分布 B 通过 0/6（QC 通过 6/6），p_emp_B 0.070–0.235
+蒙特卡洛：77 组合 SE_A 中位 0.0109、最大 0.0158；边界 16 组合，p 变化 -0.011 至 +0.021；未校正 0.05 判定改变 1（GSE30219 SIG-004 0.049→0.070）；FDR 判定改变 0
+GSE68465 分层：|z| ≥ 1.96 未分层 5、分层 6；p_emp_A < 0.05 未分层 2（SIG-001, SIG-008）、分层 1（SIG-001）；PH p < 0.05 未分层 5、分层 5；FDR 通过 0 → 0
+README                       identical
+S1_deviation_log             CHANGED (rows 34 -> 37)
+S2_registry                  identical
+S3_classB_nullB              identical
+S4_all_combinations          identical
+S5_confounding               identical
+S6_fibroblast_proliferation  identical
+S7_SIG012_published_coef     identical
+S8a_null_summary_by_cohort   identical
+S8b_alternative_FDR          identical
+S8c_proportional_hazards     identical
+Column_dictionary            identical
+S8d_positive_control         NEW 6 rows; CJK: FALSE
+S8e_monte_carlo              NEW 16 rows; CJK: FALSE
+S8f_GSE68465_site            NEW 12 rows; CJK: FALSE
+S9_parameters                NEW 30 rows; CJK: FALSE
+md5 05ba1b700862e082d82887dd21fd1edd 
+done: 2026-11-12 08:59:46 
